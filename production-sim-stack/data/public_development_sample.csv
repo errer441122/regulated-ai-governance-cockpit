@@ -1,0 +1,21 @@
+programme_id,country,iso3,year,region,internet_users_pct,mobile_subscriptions_per_100,gov_effectiveness_score,disaster_risk_index,fragility_flag,data_protection_maturity,ai_readiness_score,case_notes,needs_capacity_support
+PG-001,Kenya,KEN,2024,Sub-Saharan Africa,40.8,114.2,-0.35,5.8,0,3,58,"digital public infrastructure programme with rural connectivity gap",1
+PG-002,Ghana,GHA,2024,Sub-Saharan Africa,68.2,130.1,0.02,4.2,0,3,64,"mobile service delivery with privacy review completed",0
+PG-003,Nepal,NPL,2024,South Asia,49.6,122.0,-0.22,7.4,0,2,51,"earthquake exposure and local capacity constraint",1
+PG-004,Haiti,HTI,2024,Latin America and Caribbean,38.1,67.0,-1.48,8.9,1,1,34,"fragile context displacement data protection gap",1
+PG-005,Jordan,JOR,2024,Middle East and North Africa,88.0,87.5,0.05,5.1,0,3,67,"refugee service delivery with approved safeguards",0
+PG-006,Bangladesh,BGD,2024,South Asia,44.5,108.2,-0.62,8.1,0,2,49,"flood exposure procurement capacity issue",1
+PG-007,Colombia,COL,2024,Latin America and Caribbean,75.7,142.5,-0.08,6.0,0,3,66,"regional digital services with monitoring owner",0
+PG-008,Somalia,SOM,2024,Sub-Saharan Africa,27.3,56.4,-2.01,9.0,1,1,28,"fragile drought displacement connectivity risk",1
+PG-009,Ukraine,UKR,2024,Europe and Central Asia,79.2,129.6,-0.72,7.7,1,2,57,"crisis service continuity and cyber risk",1
+PG-010,Indonesia,IDN,2024,East Asia and Pacific,66.5,115.8,0.18,7.0,0,3,65,"disaster alerting with privacy safeguards",0
+PG-011,Rwanda,RWA,2024,Sub-Saharan Africa,36.8,86.1,0.12,4.8,0,4,62,"digital ID service training programme",0
+PG-012,Pakistan,PAK,2024,South Asia,32.9,82.7,-0.71,7.9,0,2,45,"flood recovery case management capacity gap",1
+PG-013,Tunisia,TUN,2024,Middle East and North Africa,79.0,128.0,-0.18,4.7,0,3,62,"digital skills programme with audit trail",0
+PG-014,Mozambique,MOZ,2024,Sub-Saharan Africa,21.2,52.5,-0.88,8.3,0,1,39,"cyclone exposure low connectivity capacity gap",1
+PG-015,Peru,PER,2024,Latin America and Caribbean,74.0,124.4,-0.25,6.5,0,3,63,"regional service monitoring with open dashboard",0
+PG-016,Afghanistan,AFG,2024,South Asia,18.4,58.8,-1.92,8.6,1,1,25,"fragile context access constraint privacy risk",1
+PG-017,Egypt,EGY,2024,Middle East and North Africa,72.2,94.8,-0.42,5.2,0,2,55,"public service digitization with procurement review",1
+PG-018,Vietnam,VNM,2024,East Asia and Pacific,78.6,143.3,0.05,6.4,0,3,68,"digital inclusion programme with service metrics",0
+PG-019,Ethiopia,ETH,2024,Sub-Saharan Africa,24.0,63.2,-0.93,7.8,1,1,33,"food security monitoring displacement risk",1
+PG-020,Philippines,PHL,2024,East Asia and Pacific,58.0,156.0,0.00,8.0,0,3,61,"typhoon response analytics with safeguards",0

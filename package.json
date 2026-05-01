@@ -1,0 +1,23 @@
+{
+  "name": "regulated-ai-governance-cockpit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static portfolio case study for regulated AI governance, data readiness, and responsible workflow adoption.",
+  "scripts": {
+    "test": "npm run test:node && npm run test:hpc && npm run test:prod-sim",
+    "test:node": "node scripts/validate-data.mjs",
+    "test:hpc": "python -m unittest discover hpc-mlops-industrial-lab/tests",
+    "test:prod-sim": "python -m unittest discover production-sim-stack/tests",
+    "test:python": "python -m pytest -q",
+    "run:hpc": "python hpc-mlops-industrial-lab/src/run_pipeline.py",
+    "run:prod-sim": "python production-sim-stack/src/orchestrate.py",
+    "run:ml-baseline": "python ml-baseline/train_model.py",
+    "run:orchestrator": "python orchestration/local_orchestrator.py",
+    "run:undp": "python undp-sdg-risk-lab/src/run_pipeline.py",
+    "run:rag": "python hpc-ai-rag-lab/src/benchmark.py --quick",
+    "validate": "npm test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

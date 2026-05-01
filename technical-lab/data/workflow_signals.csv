@@ -1,0 +1,11 @@
+organization,sector,use_case,data_source,data_sensitivity,metadata_quality,process_maturity,stakeholder_clarity,automation_potential,ai_governance_readiness,estimated_users,criticality,approved_for_brief
+Regional Health Data Office,Public services,Human-reviewed triage summary,case-management exports,high,4,3,4,3,4,180,high,yes
+Manufacturing SME Pilot Line,Manufacturing,Machine-event anomaly routing,industrial IoT logs,medium,3,4,3,4,3,65,medium,yes
+Energy Grid Operations Team,Utilities,Maintenance knowledge-base assistant,maintenance tickets,high,4,4,4,3,5,120,high,yes
+Municipal Digital Services Unit,Public administration,Citizen-service request clustering,service portal tickets,medium,3,3,3,4,4,250,medium,yes
+Retail CX Analytics Team,Customer analytics,Customer feedback insight brief,survey and CRM exports,medium,4,4,5,4,4,90,medium,yes
+Research HPC Support Desk,Research infrastructure,AI workload intake classifier,support requests and metadata forms,medium,5,4,4,3,5,45,high,yes
+Insurance Reporting Office,Financial services,Agentic reporting checklist,structured reporting dataset,high,4,5,4,4,5,75,high,yes
+AgriTech Innovation Hub,Agritech,Dataset readiness triage,field sensor summaries,medium,2,3,3,3,3,40,medium,yes
+Training and Capacity Team,International development,Responsible AI training needs map,workshop feedback,low,3,3,4,2,4,300,medium,yes
+Legacy Procurement Function,Operations,Procurement document summarization,shared-drive documents,high,1,2,2,3,2,35,high,no

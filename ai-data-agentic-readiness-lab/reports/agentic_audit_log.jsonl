@@ -1,0 +1,5 @@
+{"timestamp_utc": "2026-05-01T08:56:06.841331+00:00", "event": "agentic_brief_generated", "workflow_id": "WF-006", "organization": "AI Factory Support Desk", "reviewer": "Human reviewer", "human_review_required": true}
+{"timestamp_utc": "2026-05-01T08:58:00.378404+00:00", "event": "agentic_brief_generated", "workflow_id": "WF-006", "organization": "AI Factory Support Desk", "reviewer": "Human reviewer", "human_review_required": true}
+{"timestamp_utc": "2026-05-01T10:26:10.437336+00:00", "event": "agentic_brief_generated", "workflow_id": "WF-006", "organization": "AI Factory Support Desk", "reviewer": "Human reviewer", "human_review_required": true}
+{"timestamp_utc": "2026-05-01T12:45:35.824238+00:00", "event": "agentic_brief_generated", "workflow_id": "WF-006", "organization": "AI Factory Support Desk", "reviewer": "CI reviewer", "human_review_required": true}
+{"timestamp_utc": "2026-05-01T16:22:18.490058+00:00", "event": "agentic_brief_generated", "workflow_id": "WF-006", "organization": "AI Factory Support Desk", "reviewer": "Human reviewer", "human_review_required": true}

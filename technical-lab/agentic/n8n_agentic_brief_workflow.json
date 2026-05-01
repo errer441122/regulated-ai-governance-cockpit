@@ -1,0 +1,63 @@
+{
+  "name": "Human-reviewed AI workflow brief",
+  "nodes": [
+    {
+      "id": "manual-trigger",
+      "name": "Manual reviewer trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [0, 0],
+      "parameters": {}
+    },
+    {
+      "id": "load-approved-data",
+      "name": "Load approved workflow row",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "position": [240, 0],
+      "parameters": {
+        "filePath": "technical-lab/data/workflow_signals.csv"
+      }
+    },
+    {
+      "id": "validate-guardrails",
+      "name": "Validate approval and guardrails",
+      "type": "n8n-nodes-base.function",
+      "position": [480, 0],
+      "parameters": {
+        "functionCode": "return items.map(item => ({ json: { ...item.json, human_review_required: true, approved_inputs_only: true } }));"
+      }
+    },
+    {
+      "id": "generate-brief",
+      "name": "Generate structured brief draft",
+      "type": "n8n-nodes-base.function",
+      "position": [720, 0],
+      "parameters": {
+        "functionCode": "return items.map(item => ({ json: { brief_status: 'REQUIRES HUMAN REVIEW BEFORE USE', reviewer_next_step: 'Confirm data source, privacy boundary, and pilot owner before use.' } }));"
+      }
+    },
+    {
+      "id": "write-audit-log",
+      "name": "Write audit log",
+      "type": "n8n-nodes-base.writeBinaryFile",
+      "position": [960, 0],
+      "parameters": {
+        "fileName": "technical-lab/reports/agent_run_log.jsonl"
+      }
+    }
+  ],
+  "connections": {
+    "Manual reviewer trigger": {
+      "main": [[{"node": "Load approved workflow row", "type": "main", "index": 0}]]
+    },
+    "Load approved workflow row": {
+      "main": [[{"node": "Validate approval and guardrails", "type": "main", "index": 0}]]
+    },
+    "Validate approval and guardrails": {
+      "main": [[{"node": "Generate structured brief draft", "type": "main", "index": 0}]]
+    },
+    "Generate structured brief draft": {
+      "main": [[{"node": "Write audit log", "type": "main", "index": 0}]]
+    }
+  },
+  "notes": "Portfolio workflow export. It demonstrates no-code/low-code orchestration boundaries, not a production deployment."
+}

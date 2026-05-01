@@ -1,0 +1,26 @@
+{
+  "boundary": "Synthetic portfolio dataset validation; not production data-quality certification.",
+  "columns": [
+    "company_age_years",
+    "company_size_bucket",
+    "data_quality_score",
+    "esg_climate_exposure",
+    "financial_signal_score",
+    "geo_distance_risk",
+    "human_review_required",
+    "late_payment_signal",
+    "record_id",
+    "region",
+    "region_macro_risk",
+    "sector",
+    "sector_risk_score",
+    "target_default_or_escalation",
+    "text_risk_score"
+  ],
+  "dataset": "ml-baseline\\data\\simulated_regulated_risk_dataset.csv",
+  "duplicate_record_ids": false,
+  "missing_required_columns": [],
+  "numeric_parse_failures": [],
+  "rows": 360,
+  "status": "passed"
+}

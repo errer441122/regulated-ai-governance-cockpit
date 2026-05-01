@@ -1,0 +1,9 @@
+Bootstrap: docker
+From: python:3.11-slim
+
+%post
+    python -m pip install --upgrade pip
+    python -m pip install numpy
+
+%runscript
+    python hpc-pytorch-benchmark/benchmark.py --quick

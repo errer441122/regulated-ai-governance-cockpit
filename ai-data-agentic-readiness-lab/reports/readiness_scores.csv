@@ -1,0 +1,13 @@
+workflow_id,organization,sector,use_case,data_source,data_sensitivity,metadata_quality,data_governance,stakeholder_clarity,data_engineering_maturity,reporting_value,ai_workload_fit,estimated_users,owner_named,agentic_use_approved,domain,readiness_score,readiness_class,blockers,has_blockers
+WF-001,Regional Public Services Office,Public administration,Citizen request prioritization,service portal export,medium,3,4,4,3,5,3,260,yes,yes,public-services,3.65,prepare_then_pilot,,False
+WF-002,Manufacturing Pilot Line,Manufacturing,Machine-event anomaly routing,industrial IoT logs,medium,3,3,3,4,4,4,80,yes,yes,industry-4-0,3.45,foundation_work_needed,,False
+WF-003,Financial Risk Reporting Unit,Financial services,Regulatory reporting checklist,structured reporting tables,high,4,5,4,4,5,3,70,yes,yes,financial-services,4.2,prepare_then_pilot,,False
+WF-004,Energy Infrastructure Maintenance Team,Utilities,Maintenance knowledge assistant,maintenance tickets,high,4,4,4,3,4,4,130,yes,yes,critical-infrastructure,3.85,prepare_then_pilot,,False
+WF-005,UN Programme Monitoring Unit,International development,Programme evidence summarization,monitoring spreadsheets,medium,3,4,5,3,5,3,400,yes,yes,public-impact,3.8,prepare_then_pilot,,False
+WF-006,AI Factory Support Desk,Research infrastructure,AI workload intake triage,metadata intake forms,medium,5,5,4,4,4,5,55,yes,yes,ai-factory,4.55,controlled_pilot_ready,,False
+WF-007,SME Cybersecurity Helpdesk,Cybersecurity,Ticket classification and response routing,helpdesk tickets,high,2,3,3,3,4,4,45,yes,no,cybersecurity,3.1,foundation_work_needed,high_sensitivity_weak_governance;metadata_quality_below_threshold;agentic_use_not_approved,True
+WF-008,AgriTech Data Cooperative,Agritech,Sensor dataset readiness check,field sensor summaries,medium,2,3,3,3,3,4,35,no,yes,agritech,2.95,foundation_work_needed,metadata_quality_below_threshold;owner_not_named,True
+WF-009,Healthcare Research Network,Healthcare,Research cohort documentation assistant,research metadata forms,high,4,4,3,4,4,5,95,yes,yes,healthcare,4.0,prepare_then_pilot,,False
+WF-010,Legacy Procurement Archive,Operations,Procurement document summarization,shared drive documents,high,1,2,2,2,3,2,30,no,no,operations,1.95,not_ready,high_sensitivity_weak_governance;metadata_quality_below_threshold;owner_not_named;agentic_use_not_approved;stakeholder_clarity_below_threshold,True
+WF-011,Customer Insight Team,Customer analytics,Feedback insight brief,survey and CRM extracts,medium,4,4,5,4,5,3,120,yes,yes,customer-analytics,4.15,prepare_then_pilot,,False
+WF-012,Climate Data Service,Climate,Forecast dataset metadata assistant,model run metadata,medium,5,4,4,5,4,5,75,yes,yes,climate,4.5,controlled_pilot_ready,,False

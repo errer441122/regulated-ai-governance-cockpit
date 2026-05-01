@@ -1,0 +1,11 @@
+{
+  "backend": "numpy_fallback_no_torch",
+  "boundary": "No CINECA, IT4LIA, Leonardo, or GPU execution claim.",
+  "execution_note": "Executed locally on CPU with NumPy fallback because PyTorch is optional in CI.",
+  "features": 24,
+  "gpu_benchmark_optional": "not executed",
+  "hardware_note": "Windows-10-10.0.26200-SP0",
+  "inference_latency_ms": 0.0053,
+  "rows": 256,
+  "runtime_seconds": 0.0002
+}

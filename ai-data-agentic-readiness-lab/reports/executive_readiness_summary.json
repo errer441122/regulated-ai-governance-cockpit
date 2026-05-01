@@ -1,0 +1,57 @@
+{
+  "row_count": 12,
+  "schema_issues": [],
+  "average_readiness_score": 3.68,
+  "controlled_pilot_ready_count": 2,
+  "blocked_count": 3,
+  "top_domains": {
+    "public-services": 1,
+    "industry-4-0": 1,
+    "financial-services": 1,
+    "critical-infrastructure": 1,
+    "public-impact": 1
+  },
+  "readiness_classes": {
+    "prepare_then_pilot": 6,
+    "foundation_work_needed": 3,
+    "controlled_pilot_ready": 2,
+    "not_ready": 1
+  },
+  "top_candidates": [
+    {
+      "workflow_id": "WF-006",
+      "organization": "AI Factory Support Desk",
+      "use_case": "AI workload intake triage",
+      "readiness_score": 4.55,
+      "readiness_class": "controlled_pilot_ready"
+    },
+    {
+      "workflow_id": "WF-012",
+      "organization": "Climate Data Service",
+      "use_case": "Forecast dataset metadata assistant",
+      "readiness_score": 4.5,
+      "readiness_class": "controlled_pilot_ready"
+    },
+    {
+      "workflow_id": "WF-003",
+      "organization": "Financial Risk Reporting Unit",
+      "use_case": "Regulatory reporting checklist",
+      "readiness_score": 4.2,
+      "readiness_class": "prepare_then_pilot"
+    },
+    {
+      "workflow_id": "WF-011",
+      "organization": "Customer Insight Team",
+      "use_case": "Feedback insight brief",
+      "readiness_score": 4.15,
+      "readiness_class": "prepare_then_pilot"
+    },
+    {
+      "workflow_id": "WF-009",
+      "organization": "Healthcare Research Network",
+      "use_case": "Research cohort documentation assistant",
+      "readiness_score": 4.0,
+      "readiness_class": "prepare_then_pilot"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "boundary": "local-only orchestration simulation; not a Dagster/Airflow/cloud deployment",
+  "generated_at_utc": "2026-05-01T16:26:27+00:00",
+  "steps": [
+    {
+      "command": "npm run test:node",
+      "name": "static_data_validation",
+      "required": true,
+      "returncode": 0,
+      "status": "passed",
+      "stderr_tail": [],
+      "stdout_tail": [
+        "> regulated-ai-governance-cockpit@1.0.0 test:node",
+        "> node scripts/validate-data.mjs",
+        "",
+        "Dataset validation passed: 20 accounts, 16 deals, 3 decision demos.",
+        "Computed pipeline: total=8400000 weighted=4269000."
+      ]
+    },
+    {
+      "command": "C:\\Users\\errer\\AppData\\Local\\Programs\\Python\\Python310\\python.exe ml-baseline/train_model.py",
+      "name": "risk_ml_training",
+      "required": true,
+      "returncode": 0,
+      "status": "passed",
+      "stderr_tail": [],
+      "stdout_tail": [
+        "Risk ML baseline completed: rows=360 selected_model=logistic_regression roc_auc=0.996 pr_auc=0.976 f1=0.8667 brier=0.0301 artifact=artifacts\\model.joblib"
+      ]
+    },
+    {
+      "command": "C:\\Users\\errer\\AppData\\Local\\Programs\\Python\\Python310\\python.exe production-sim-stack/src/orchestrate.py",
+      "name": "production_sim_orchestration",
+      "required": true,
+      "returncode": 0,
+      "status": "passed",
+      "stderr_tail": [],
+      "stdout_tail": [
+        "Production simulation completed: rows=20 accuracy=0.95 f1=0.9524"
+      ]
+    },
+    {
+      "command": "C:\\Users\\errer\\AppData\\Local\\Programs\\Python\\Python310\\python.exe undp-sdg-risk-lab/src/run_pipeline.py",
+      "name": "undp_sdg_pipeline",
+      "required": true,
+      "returncode": 0,
+      "status": "passed",
+      "stderr_tail": [],
+      "stdout_tail": [
+        "UNDP SDG risk lab completed: rows=10 flags=3 average_score=0.3748"
+      ]
+    },
+    {
+      "command": "C:\\Users\\errer\\AppData\\Local\\Programs\\Python\\Python310\\python.exe hpc-ai-rag-lab/src/benchmark.py --quick",
+      "name": "hpc_rag_quick_benchmark",
+      "required": true,
+      "returncode": 0,
+      "status": "passed",
+      "stderr_tail": [],
+      "stdout_tail": [
+        "HPC/RAG benchmark completed: documents=3 chunks=6 queries=2 top_k_accuracy=1.0"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "candidate_metrics": {
+    "hist_gradient_boosting_probability": {
+      "brier_score": 0.04843,
+      "confusion_matrix": {
+        "false_negative": 1594,
+        "false_positive": 262,
+        "true_negative": 27733,
+        "true_positive": 411
+      },
+      "event_rate": 0.066833,
+      "expected_calibration_error": 0.003949,
+      "f1": 0.306945,
+      "gini": 0.741732,
+      "ks_statistic": 0.593015,
+      "pr_auc": 0.409538,
+      "precision": 0.610698,
+      "recall": 0.204988,
+      "roc_auc": 0.870866,
+      "rows": 30000,
+      "threshold": 0.5
+    },
+    "logistic_regression_balanced": {
+      "brier_score": 0.183284,
+      "confusion_matrix": {
+        "false_negative": 684,
+        "false_positive": 6550,
+        "true_negative": 21445,
+        "true_positive": 1321
+      },
+      "event_rate": 0.066833,
+      "expected_calibration_error": 0.349701,
+      "f1": 0.267517,
+      "gini": 0.580872,
+      "ks_statistic": 0.428209,
+      "pr_auc": 0.308763,
+      "precision": 0.167831,
+      "recall": 0.658853,
+      "roc_auc": 0.790436,
+      "rows": 30000,
+      "threshold": 0.5
+    }
+  },
+  "dataset": "OpenML 46929 GiveMeSomeCredit",
+  "event_rate_test": 0.066833,
+  "event_rate_train": 0.066842,
+  "model_path": "C:\\Users\\errer\\Desktop\\commercial_ops_cockpit_final_ready\\credit-risk-model-risk-lab\\artifacts\\credit_risk_model.joblib",
+  "rows": 150000,
+  "selected_model": "hist_gradient_boosting_probability",
+  "test_rows": 30000,
+  "train_rows": 120000
+}

@@ -1,0 +1,13 @@
+workflow_id,organization,sector,use_case,data_source,data_sensitivity,metadata_quality,data_governance,stakeholder_clarity,data_engineering_maturity,reporting_value,ai_workload_fit,estimated_users,owner_named,agentic_use_approved,domain
+WF-001,Regional Public Services Office,Public administration,Citizen request prioritization,service portal export,medium,3,4,4,3,5,3,260,yes,yes,public-services
+WF-002,Manufacturing Pilot Line,Manufacturing,Machine-event anomaly routing,industrial IoT logs,medium,3,3,3,4,4,4,80,yes,yes,industry-4-0
+WF-003,Financial Risk Reporting Unit,Financial services,Regulatory reporting checklist,structured reporting tables,high,4,5,4,4,5,3,70,yes,yes,financial-services
+WF-004,Energy Infrastructure Maintenance Team,Utilities,Maintenance knowledge assistant,maintenance tickets,high,4,4,4,3,4,4,130,yes,yes,critical-infrastructure
+WF-005,UN Programme Monitoring Unit,International development,Programme evidence summarization,monitoring spreadsheets,medium,3,4,5,3,5,3,400,yes,yes,public-impact
+WF-006,AI Factory Support Desk,Research infrastructure,AI workload intake triage,metadata intake forms,medium,5,5,4,4,4,5,55,yes,yes,ai-factory
+WF-007,SME Cybersecurity Helpdesk,Cybersecurity,Ticket classification and response routing,helpdesk tickets,high,2,3,3,3,4,4,45,yes,no,cybersecurity
+WF-008,AgriTech Data Cooperative,Agritech,Sensor dataset readiness check,field sensor summaries,medium,2,3,3,3,3,4,35,no,yes,agritech
+WF-009,Healthcare Research Network,Healthcare,Research cohort documentation assistant,research metadata forms,high,4,4,3,4,4,5,95,yes,yes,healthcare
+WF-010,Legacy Procurement Archive,Operations,Procurement document summarization,shared drive documents,high,1,2,2,2,3,2,30,no,no,operations
+WF-011,Customer Insight Team,Customer analytics,Feedback insight brief,survey and CRM extracts,medium,4,4,5,4,5,3,120,yes,yes,customer-analytics
+WF-012,Climate Data Service,Climate,Forecast dataset metadata assistant,model run metadata,medium,5,4,4,5,4,5,75,yes,yes,climate

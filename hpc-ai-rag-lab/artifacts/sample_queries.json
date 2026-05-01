@@ -1,0 +1,10 @@
+[
+  {
+    "expected_path": "data/sample_governance_docs/ai_policy_note.md",
+    "query": "What decisions must not be automated?"
+  },
+  {
+    "expected_path": "data/sample_governance_docs/data_management_note.md",
+    "query": "What would a real AI Factory run require for data management?"
+  }
+]

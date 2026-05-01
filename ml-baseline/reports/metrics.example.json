@@ -1,0 +1,87 @@
+{
+  "brier_score": 0.0301,
+  "data_path": "data\\simulated_regulated_risk_dataset.csv",
+  "f1": 0.8667,
+  "limits": [
+    "Synthetic data only.",
+    "Portfolio simulation metrics, not production validation.",
+    "Advisory human-review triage only."
+  ],
+  "models": {
+    "logistic_regression": {
+      "brier_score": 0.0301,
+      "confusion_matrix": [
+        [
+          91,
+          4
+        ],
+        [
+          0,
+          13
+        ]
+      ],
+      "f1": 0.8667,
+      "false_negative": 0,
+      "false_positive": 4,
+      "pr_auc": 0.976,
+      "precision": 0.7647,
+      "recall": 1.0,
+      "roc_auc": 0.996,
+      "true_negative": 91,
+      "true_positive": 13
+    },
+    "random_forest": {
+      "brier_score": 0.0614,
+      "confusion_matrix": [
+        [
+          95,
+          0
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "f1": 0.7,
+      "false_negative": 6,
+      "false_positive": 0,
+      "pr_auc": 0.9188,
+      "precision": 1.0,
+      "recall": 0.5385,
+      "roc_auc": 0.9846,
+      "true_negative": 95,
+      "true_positive": 7
+    },
+    "rule_baseline": {
+      "brier_score": 0.3854,
+      "confusion_matrix": [
+        [
+          30,
+          65
+        ],
+        [
+          0,
+          13
+        ]
+      ],
+      "f1": 0.2857,
+      "false_negative": 0,
+      "false_positive": 65,
+      "pr_auc": 0.1667,
+      "precision": 0.1667,
+      "recall": 1.0,
+      "roc_auc": 0.6579,
+      "true_negative": 30,
+      "true_positive": 13
+    }
+  },
+  "pr_auc": 0.976,
+  "precision": 0.7647,
+  "recall": 1.0,
+  "roc_auc": 0.996,
+  "rows": 360,
+  "selected_model": "logistic_regression",
+  "task": "target_default_or_escalation",
+  "test_rows": 108,
+  "train_rows": 252
+}

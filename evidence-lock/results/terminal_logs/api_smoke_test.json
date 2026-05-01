@@ -1,0 +1,12 @@
+{
+  "health": {
+    "mode": "local_evidence_simulation",
+    "status": "ok"
+  },
+  "score": {
+    "decision_boundary": "advisory human-review triage only",
+    "predicted_review_escalation": 1,
+    "predicted_review_escalation_probability": 0.6278,
+    "workflow_id": "WF-SMOKE-001"
+  }
+}

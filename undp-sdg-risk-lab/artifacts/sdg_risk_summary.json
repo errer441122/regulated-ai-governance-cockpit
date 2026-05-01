@@ -1,0 +1,12 @@
+{
+  "average_sdg_risk_score": 0.3748,
+  "boundary": "Briefing aid only; no automated aid, eligibility, procurement, targeting, or policy decisions.",
+  "capacity_support_flags": 3,
+  "generated_at_utc": "2026-05-01T16:26:30+00:00",
+  "rows": 10,
+  "top_contexts": [
+    "HTI",
+    "NPL",
+    "BGD"
+  ]
+}

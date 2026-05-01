@@ -1,0 +1,20 @@
+Bootstrap: docker
+From: python:3.12-slim
+
+%labels
+    Workload hpc-ai-rag-lab
+    Boundary local-simulation-not-real-cluster
+
+%post
+    python -m pip install --no-cache-dir --upgrade pip
+    python -m pip install --no-cache-dir scikit-learn==1.5.2 pytest
+
+%files
+    ../hpc-ai-rag-lab /workspace/hpc-ai-rag-lab
+
+%environment
+    export PYTHONUNBUFFERED=1
+
+%runscript
+    cd /workspace
+    python hpc-ai-rag-lab/src/benchmark.py --quick

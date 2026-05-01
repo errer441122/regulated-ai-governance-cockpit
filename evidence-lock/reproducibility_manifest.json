@@ -1,0 +1,26 @@
+{
+  "version": "v1.0-ai-internship-evidence-lock",
+  "repository": "regulated-ai-governance-cockpit",
+  "primary_stack": [
+    "Python",
+    "scikit-learn",
+    "SQL/DuckDB",
+    "FastAPI-compatible scoring",
+    "Docker evidence",
+    "Slurm-ready scripts"
+  ],
+  "reproduce": [
+    "make setup",
+    "make evidence"
+  ],
+  "outputs": [
+    "evidence-lock/results/portfolio_evidence_report.md",
+    "evidence-lock/results/metrics_summary.json",
+    "evidence-lock/results/api_smoke_test.md",
+    "evidence-lock/results/docker_smoke_test.md",
+    "evidence-lock/results/model_card.md",
+    "evidence-lock/results/data_card.md",
+    "evidence-lock/results/limitations.md"
+  ],
+  "boundary": "Portfolio evidence only; no production, legal, credit, aid-allocation, employer, HPC, or cloud deployment claim."
+}

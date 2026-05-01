@@ -1,0 +1,86 @@
+{
+  "bins": [
+    {
+      "average_probability": 0.0104,
+      "bin": 1,
+      "observed_rate": 0.0,
+      "probability_high": 0.1,
+      "probability_low": 0.0,
+      "rows": 82
+    },
+    {
+      "average_probability": 0.1442,
+      "bin": 2,
+      "observed_rate": 0.0,
+      "probability_high": 0.2,
+      "probability_low": 0.1,
+      "rows": 5
+    },
+    {
+      "average_probability": 0.2489,
+      "bin": 3,
+      "observed_rate": 0.0,
+      "probability_high": 0.3,
+      "probability_low": 0.2,
+      "rows": 1
+    },
+    {
+      "average_probability": 0.3544,
+      "bin": 4,
+      "observed_rate": 0.0,
+      "probability_high": 0.4,
+      "probability_low": 0.3,
+      "rows": 1
+    },
+    {
+      "average_probability": 0.4681,
+      "bin": 5,
+      "observed_rate": 0.0,
+      "probability_high": 0.5,
+      "probability_low": 0.4,
+      "rows": 2
+    },
+    {
+      "average_probability": 0.5704,
+      "bin": 6,
+      "observed_rate": 1.0,
+      "probability_high": 0.6,
+      "probability_low": 0.5,
+      "rows": 1
+    },
+    {
+      "average_probability": 0.6716,
+      "bin": 7,
+      "observed_rate": 0.0,
+      "probability_high": 0.7,
+      "probability_low": 0.6,
+      "rows": 1
+    },
+    {
+      "average_probability": 0.7339,
+      "bin": 8,
+      "observed_rate": 0.3333,
+      "probability_high": 0.8,
+      "probability_low": 0.7,
+      "rows": 3
+    },
+    {
+      "average_probability": 0.8623,
+      "bin": 9,
+      "observed_rate": 0.5,
+      "probability_high": 0.9,
+      "probability_low": 0.8,
+      "rows": 2
+    },
+    {
+      "average_probability": 0.9665,
+      "bin": 10,
+      "observed_rate": 1.0,
+      "probability_high": 1.0,
+      "probability_low": 0.9,
+      "rows": 10
+    }
+  ],
+  "interpretation": "Local calibration bins for synthetic portfolio data; not production calibration.",
+  "model": "logistic_regression"
+}

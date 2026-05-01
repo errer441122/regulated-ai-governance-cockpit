@@ -1,0 +1,6 @@
+business_id,legal_name,vat_id,city,status,employees
+IT-0001,Alfa Servizi SRL,IT01234567890,Bologna,active,42
+IT-0002,Beta Data SPA,IT09876543210,Milano,active,120
+IT-0003,Gamma Labs SRL,IT00000000000,,active,-4
+IT-0004,Delta Mobility SRL,IT11122233344,Torino,inactive,18
+IT-0005,Beta Data S.p.A.,IT09876543210,Milan,active,121

@@ -1,0 +1,90 @@
+name: Validate portfolio evidence
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install reviewer Python dependencies
+        run: |
+          python -m pip install -r production-sim-stack/requirements-api.txt
+          python -m pip install -r ml-baseline/requirements.txt
+          python -m pip install -r credit-risk-model-risk-lab/requirements.txt
+          python -m pip install -r ai-data-agentic-readiness-lab/requirements.txt
+          python -m pip install -r technical-lab/requirements.txt
+
+      - name: Validate static cockpit data and unit-tested labs
+        run: npm test
+
+      - name: Build deployable API Docker image
+        run: docker build -t regulated-ai-governance-api:ci production-sim-stack
+
+      - name: Run Python pytest suites
+        run: python -m pytest -q
+
+      - name: Execute reviewer-visible ML and production pipelines
+        run: |
+          python hpc-mlops-industrial-lab/src/run_pipeline.py
+          python production-sim-stack/src/orchestrate.py
+          python ml-baseline/train_model.py
+          python orchestration/local_orchestrator.py
+          python undp-sdg-risk-lab/src/run_pipeline.py
+          python hpc-ai-rag-lab/src/benchmark.py --quick
+          python production-sim-stack/scripts/check_api_contract.py
+          python credit-risk-model-risk-lab/src/fetch_data.py
+          python credit-risk-model-risk-lab/src/train.py
+          python credit-risk-model-risk-lab/src/evaluate.py
+          python scripts/smoke_check.py
+          python public-risk-ml-lab/fetch_or_prepare_data.py
+          python public-risk-ml-lab/train.py
+          python public-risk-ml-lab/evaluate.py
+          python business-data-quality-lab/validate_registry_like_records.py
+          python business-data-quality-lab/duplicate_detection.py
+          python undp-public-data-gis-lab/sdg_indicator_analysis.py
+          python hpc-pytorch-benchmark/benchmark.py --quick
+          python scripts/build_evidence_report.py
+
+      - name: Validate AI data readiness lab
+        working-directory: ai-data-agentic-readiness-lab
+        run: |
+          python -m pip install -r requirements.txt
+          python src/pipeline.py
+          python src/generate_agentic_brief.py --workflow-id WF-006 --reviewer "CI reviewer"
+          python -m pytest tests
+
+      - name: Validate compact technical lab
+        working-directory: technical-lab
+        run: |
+          python -m pip install -r requirements.txt
+          python src/validate_dataset.py
+          python src/generate_agentic_brief.py --organization "Regional Health Data Office" --reviewer "CI reviewer"
+
+      - name: Upload reviewer artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: reviewer-artifacts
+          path: |
+            ml-baseline/artifacts/
+            undp-sdg-risk-lab/artifacts/
+            hpc-ai-rag-lab/artifacts/
+            orchestration/run_manifest.json

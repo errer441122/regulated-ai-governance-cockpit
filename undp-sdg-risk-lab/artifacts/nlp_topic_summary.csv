@@ -1,0 +1,11 @@
+signal_id,iso3,topic_keywords,method
+TXT-001,KEN,connectivity;gaps;local;need,tfidf
+TXT-002,JOR,coordination;require;unemployment;service,tfidf
+TXT-003,GHA,dashboards;monitoring,tfidf
+TXT-004,BGD,analytics;digital;exposure;service,tfidf
+TXT-005,PER,clearer;need;climate;monitoring,tfidf
+TXT-006,HTI,conditions;crisis;require;review,tfidf
+TXT-007,NPL,complicate;delivery;connectivity;climate,tfidf
+TXT-008,RWA,capacity;monitoring;data,tfidf
+TXT-009,TUN,analytics;gaps;protection;unemployment,tfidf
+TXT-010,FJI,continuity;local;climate;digital,tfidf

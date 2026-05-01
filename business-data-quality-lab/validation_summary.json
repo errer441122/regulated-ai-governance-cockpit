@@ -1,0 +1,18 @@
+{
+  "anomalies": [
+    {
+      "business_id": "IT-0003",
+      "issue": "missing_city"
+    },
+    {
+      "business_id": "IT-0003",
+      "issue": "negative_employee_count"
+    },
+    {
+      "business_id": "IT-0003",
+      "issue": "placeholder_vat_id"
+    }
+  ],
+  "rows": 5,
+  "status": "review_required"
+}

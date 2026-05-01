@@ -1,0 +1,12 @@
+{
+  "duplicate_candidates": [
+    {
+      "left_business_id": "IT-0002",
+      "name_similarity": 0.897,
+      "recommended_action": "human_review_merge_or_confirm",
+      "right_business_id": "IT-0005",
+      "same_vat": true
+    }
+  ],
+  "status": "review_required"
+}

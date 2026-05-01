@@ -1,0 +1,26 @@
+Bootstrap: docker
+From: python:3.12-slim
+
+%labels
+    Author Riccardo Capanna
+    Workload regulated-ai-governance-reviewer-pack
+    Boundary simulated-portfolio-data-only
+
+%post
+    python -m pip install --no-cache-dir --upgrade pip
+    python -m pip install --no-cache-dir scikit-learn==1.5.2 pandas==2.2.3 pytest duckdb joblib
+
+%files
+    ../ml-baseline /workspace/ml-baseline
+    ../hpc-mlops-industrial-lab /workspace/hpc-mlops-industrial-lab
+    ../production-sim-stack /workspace/production-sim-stack
+    ../sql /workspace/sql
+
+%environment
+    export PYTHONUNBUFFERED=1
+
+%runscript
+    cd /workspace
+    python hpc-mlops-industrial-lab/src/run_pipeline.py
+    python production-sim-stack/src/orchestrate.py
+    python ml-baseline/train_model.py

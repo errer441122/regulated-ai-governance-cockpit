@@ -1,0 +1,57 @@
+{
+  "average_query_latency_seconds": 0.5027,
+  "boundary": "local CPU retrieval benchmark; not executed on a real CINECA/IT4LIA cluster",
+  "chunks": 6,
+  "documents": 3,
+  "generated_at_utc": "2026-05-01T16:26:36+00:00",
+  "hardware_note": "Windows-10-10.0.26200-SP0",
+  "queries": 2,
+  "results": [
+    {
+      "answer": {
+        "answer": "The portfolio workload is designed for advisory human-review triage.",
+        "boundary": "extractive local stub; answer is drawn from retrieved text only",
+        "query": "What decisions must not be automated?",
+        "sources": [
+          {
+            "chunk_id": "ai_policy_note-2",
+            "path": "data/sample_governance_docs/ai_policy_note.md",
+            "score": 0.2846
+          }
+        ]
+      },
+      "expected_path": "data/sample_governance_docs/ai_policy_note.md",
+      "query": "What decisions must not be automated?",
+      "top_result": {
+        "chunk_id": "ai_policy_note-2",
+        "path": "data/sample_governance_docs/ai_policy_note.md",
+        "score": 0.2846,
+        "text": "The portfolio workload is designed for advisory human-review triage. Decisions must not be automated for credit, eligibility, procurement, aid allocation, legal, or policy decisions. Any real deployment would require data protection review, bias testing, monitoring, and accountable human ownership."
+      }
+    },
+    {
+      "answer": {
+        "answer": "# Data Management Note.",
+        "boundary": "extractive local stub; answer is drawn from retrieved text only",
+        "query": "What would a real AI Factory run require for data management?",
+        "sources": [
+          {
+            "chunk_id": "data_management_note-1",
+            "path": "data/sample_governance_docs/data_management_note.md",
+            "score": 0.4284
+          }
+        ]
+      },
+      "expected_path": "data/sample_governance_docs/data_management_note.md",
+      "query": "What would a real AI Factory run require for data management?",
+      "top_result": {
+        "chunk_id": "data_management_note-1",
+        "path": "data/sample_governance_docs/data_management_note.md",
+        "score": 0.4284,
+        "text": "# Data Management Note"
+      }
+    }
+  ],
+  "top_k_accuracy": 1.0,
+  "total_latency_seconds": 1.0054
+}

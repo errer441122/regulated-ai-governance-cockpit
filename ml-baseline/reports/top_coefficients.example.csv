@@ -1,0 +1,13 @@
+feature,importance,method
+late_payment_signal,0.5219,single-pass permutation on held-out test split
+financial_signal_score,0.3819,single-pass permutation on held-out test split
+company_size_bucket,0.0925,single-pass permutation on held-out test split
+data_quality_score,0.081,single-pass permutation on held-out test split
+text_risk_score,0.081,single-pass permutation on held-out test split
+esg_climate_exposure,0.0788,single-pass permutation on held-out test split
+region_macro_risk,0.0542,single-pass permutation on held-out test split
+sector,0.0519,single-pass permutation on held-out test split
+company_age_years,0.0391,single-pass permutation on held-out test split
+geo_distance_risk,0.0391,single-pass permutation on held-out test split
+sector_risk_score,0.028,single-pass permutation on held-out test split
+region,0.028,single-pass permutation on held-out test split

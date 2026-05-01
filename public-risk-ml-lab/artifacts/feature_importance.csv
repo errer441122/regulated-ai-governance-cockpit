@@ -1,0 +1,13 @@
+feature,importance
+worst_texture,1.36578
+radius_error,1.267201
+worst_symmetry,1.036496
+mean_concave_points,0.963006
+compactness_error,0.927483
+worst_area,0.889377
+worst_radius,0.88704
+area_error,0.878478
+mean_concavity,0.874054
+worst_concavity,0.867881
+perimeter_error,0.831595
+worst_perimeter,0.739276

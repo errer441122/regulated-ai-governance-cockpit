@@ -1,0 +1,35 @@
+{
+  "model": "logistic_regression",
+  "bins": [
+    {
+      "bin": "0.0-0.2",
+      "count": 89,
+      "mean_probability": 0.0167,
+      "event_rate": 0.0225
+    },
+    {
+      "bin": "0.2-0.4",
+      "count": 3,
+      "mean_probability": 0.2724,
+      "event_rate": 0.3333
+    },
+    {
+      "bin": "0.4-0.6",
+      "count": 3,
+      "mean_probability": 0.5127,
+      "event_rate": 0.6667
+    },
+    {
+      "bin": "0.6-0.8",
+      "count": 2,
+      "mean_probability": 0.7487,
+      "event_rate": 1.0
+    },
+    {
+      "bin": "0.8-1.0",
+      "count": 46,
+      "mean_probability": 0.9823,
+      "event_rate": 1.0
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "identifier": "portfolio:regulated-ai-governance-reviewer-pack:0.1",
+  "dataset_name": "simulated_regulated_workflows",
+  "dataset_type": "portfolio_simulation",
+  "title": "Regulated AI Governance Reviewer Workload Pack",
+  "description": "Simulated AI governance, ML baseline, SQL mart, and Slurm packaging evidence for reviewer evaluation.",
+  "creators": [
+    {
+      "name": "Riccardo Capanna",
+      "role": "portfolio author"
+    }
+  ],
+  "keywords": [
+    "AI Factory",
+    "HPC",
+    "Slurm",
+    "metadata",
+    "regulated AI",
+    "model evaluation",
+    "secure data management"
+  ],
+  "data_classification": "simulated portfolio data",
+  "contains_personal_data": false,
+  "contains_confidential_data": false,
+  "personal_data": false,
+  "license": "portfolio review only",
+  "task": "human escalation triage",
+  "features": [
+    "data_quality_score",
+    "governance_maturity",
+    "automation_complexity",
+    "stage_age_days",
+    "gdpr_sensitive",
+    "field_failure_signals",
+    "text_risk_hits",
+    "distance_to_bologna_km"
+  ],
+  "input_datasets": [
+    {
+      "path": "hpc-mlops-industrial-lab/data/regulated_workflows.csv",
+      "schema_owner": "portfolio",
+      "lineage_note": "Synthetic regulated workflow sample for ML and governance evidence."
+    },
+    {
+      "path": "production-sim-stack/data/public_development_sample.csv",
+      "schema_owner": "portfolio",
+      "lineage_note": "Offline public-development-style sample for reproducible CI and local runs."
+    }
+  ],
+  "outputs": [
+    "ml-baseline/reports/metrics.example.json",
+    "ml-baseline/reports/predictions_sample.csv",
+    "production-sim-stack/artifacts/run_manifest.json"
+  ],
+  "lineage": {
+    "raw_data": "hpc-mlops-industrial-lab/data/regulated_workflows.csv",
+    "feature_generation": "hpc-mlops-industrial-lab/src/run_pipeline.py",
+    "model_training": "ml-baseline/train_model.py",
+    "production_simulation": "production-sim-stack/src/orchestrate.py",
+    "reports": "ml-baseline/reports/"
+  },
+  "compute_profile": {
+    "scheduler": "Slurm",
+    "nodes": 1,
+    "cpus_per_task": 2,
+    "memory": "4G",
+    "time_limit": "00:10:00",
+    "gpu_required": false
+  },
+  "review_boundary": "Outputs support human review only and must not automate eligibility, compliance, credit, public-service, or customer decisions. No real cluster execution or production decisioning is claimed."
+}

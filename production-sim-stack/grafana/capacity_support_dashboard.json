@@ -1,0 +1,22 @@
+{
+  "title": "Capacity Support Risk Monitor",
+  "schemaVersion": 39,
+  "tags": ["portfolio", "undp", "responsible-ai", "mlops"],
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Capacity support risk probability",
+      "datasource": "InfluxDB",
+      "targets": [
+        {
+          "query": "from(bucket: \"portfolio\") |> range(start: -24h) |> filter(fn: (r) => r._measurement == \"undp_capacity_support\")"
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "title": "Human review queue",
+      "description": "Rows where predicted_capacity_support_probability >= 0.5"
+    }
+  ]
+}

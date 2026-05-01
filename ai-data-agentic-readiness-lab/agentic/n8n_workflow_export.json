@@ -1,0 +1,64 @@
+{
+  "name": "AI data readiness brief with human review",
+  "nodes": [
+    {
+      "id": "trigger",
+      "name": "Manual trigger from analyst",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [0, 0],
+      "parameters": {}
+    },
+    {
+      "id": "load",
+      "name": "Load workflow candidate",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "position": [240, 0],
+      "parameters": {
+        "filePath": "data/workflow_candidates.csv"
+      }
+    },
+    {
+      "id": "validate",
+      "name": "Check approval and blockers",
+      "type": "n8n-nodes-base.function",
+      "position": [480, 0],
+      "parameters": {
+        "functionCode": "return items.map(item => ({ json: { ...item.json, human_review_required: true, approved_inputs_only: true, blocker_check_required: true } }));"
+      }
+    },
+    {
+      "id": "draft",
+      "name": "Draft agentic brief",
+      "type": "n8n-nodes-base.function",
+      "position": [720, 0],
+      "parameters": {
+        "functionCode": "return items.map(item => ({ json: { status: 'DRAFT_REQUIRES_HUMAN_REVIEW', next_step: 'Reviewer confirms data owner, sensitivity, metric, and escalation path.' } }));"
+      }
+    },
+    {
+      "id": "notify",
+      "name": "Notify human reviewer",
+      "type": "n8n-nodes-base.emailSend",
+      "position": [960, 0],
+      "parameters": {
+        "subject": "Agentic workflow brief requires review",
+        "text": "A draft brief is ready. Review data source, blockers, privacy boundary, pilot metric, and escalation path before use."
+      }
+    }
+  ],
+  "connections": {
+    "Manual trigger from analyst": {
+      "main": [[{"node": "Load workflow candidate", "type": "main", "index": 0}]]
+    },
+    "Load workflow candidate": {
+      "main": [[{"node": "Check approval and blockers", "type": "main", "index": 0}]]
+    },
+    "Check approval and blockers": {
+      "main": [[{"node": "Draft agentic brief", "type": "main", "index": 0}]]
+    },
+    "Draft agentic brief": {
+      "main": [[{"node": "Notify human reviewer", "type": "main", "index": 0}]]
+    }
+  },
+  "notes": "Portfolio-only n8n workflow export. It demonstrates orchestration and human review controls, not production automation."
+}

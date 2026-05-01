@@ -1,0 +1,87 @@
+{
+  "categorical_drift": {
+    "company_size_bucket": {
+      "new_categories_in_test": [],
+      "test_unique": 4,
+      "train_unique": 4
+    },
+    "region": {
+      "new_categories_in_test": [],
+      "test_unique": 3,
+      "train_unique": 3
+    },
+    "sector": {
+      "new_categories_in_test": [],
+      "test_unique": 6,
+      "train_unique": 6
+    }
+  },
+  "data_quality": {
+    "missing_rate_by_column": {
+      "company_age_years": 0.0,
+      "company_size_bucket": 0.0,
+      "data_quality_score": 0.0,
+      "esg_climate_exposure": 0.0,
+      "financial_signal_score": 0.0,
+      "geo_distance_risk": 0.0,
+      "human_review_required": 0.0,
+      "late_payment_signal": 0.0,
+      "record_id": 0.0,
+      "region": 0.0,
+      "region_macro_risk": 0.0,
+      "sector": 0.0,
+      "sector_risk_score": 0.0,
+      "target_default_or_escalation": 0.0,
+      "text_risk_score": 0.0
+    },
+    "required_columns_present": [
+      "company_age_years",
+      "company_size_bucket",
+      "data_quality_score",
+      "esg_climate_exposure",
+      "financial_signal_score",
+      "geo_distance_risk",
+      "human_review_required",
+      "late_payment_signal",
+      "record_id",
+      "region",
+      "region_macro_risk",
+      "sector",
+      "sector_risk_score",
+      "target_default_or_escalation",
+      "text_risk_score"
+    ],
+    "rows": 360,
+    "schema_valid": true
+  },
+  "interpretation": "PSI-like values are local simulation checks, not production drift monitoring.",
+  "numeric_drift": {
+    "company_age_years": {
+      "psi_like": 0.0708
+    },
+    "data_quality_score": {
+      "psi_like": 0.2184
+    },
+    "esg_climate_exposure": {
+      "psi_like": 0.0688
+    },
+    "financial_signal_score": {
+      "psi_like": 0.1791
+    },
+    "geo_distance_risk": {
+      "psi_like": 0.0915
+    },
+    "late_payment_signal": {
+      "psi_like": 0.1584
+    },
+    "region_macro_risk": {
+      "psi_like": 0.0955
+    },
+    "sector_risk_score": {
+      "psi_like": 0.0899
+    },
+    "text_risk_score": {
+      "psi_like": 0.0734
+    }
+  }
+}

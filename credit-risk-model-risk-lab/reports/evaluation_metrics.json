@@ -1,0 +1,34 @@
+{
+  "brier_score": 0.04843,
+  "confusion_matrix": {
+    "false_negative": 1594,
+    "false_positive": 262,
+    "true_negative": 27733,
+    "true_positive": 411
+  },
+  "dataset": "OpenML 46929 GiveMeSomeCredit",
+  "event_rate": 0.066833,
+  "expected_calibration_error": 0.003949,
+  "f1": 0.306945,
+  "feature_columns": [
+    "RevolvingUtilizationOfUnsecuredLines",
+    "age",
+    "NumberOfTime30-59DaysPastDueNotWorse",
+    "DebtRatio",
+    "MonthlyIncome",
+    "NumberOfOpenCreditLinesAndLoans",
+    "NumberOfTimes90DaysLate",
+    "NumberRealEstateLoansOrLines",
+    "NumberOfTime60-89DaysPastDueNotWorse",
+    "NumberOfDependents"
+  ],
+  "gini": 0.741732,
+  "ks_statistic": 0.593015,
+  "pr_auc": 0.409538,
+  "precision": 0.610698,
+  "recall": 0.204988,
+  "roc_auc": 0.870866,
+  "rows": 30000,
+  "selected_model": "hist_gradient_boosting_probability",
+  "threshold": 0.5
+}

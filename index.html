@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regulated AI & Data Governance Cockpit</title>
+  <meta name="description" content="Applied AI, data analytics, responsible AI governance, and workflow automation case study for regulated organizations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://errer441122.github.io/regulated-ai-governance-cockpit/">
+  <meta property="og:title" content="Regulated AI & Data Governance Cockpit">
+  <meta property="og:description" content="Applied AI, data analytics, responsible AI governance, and workflow automation case study for regulated organizations.">
+  <meta property="og:image" content="https://errer441122.github.io/regulated-ai-governance-cockpit/social-preview.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%230A66C2'/%3E%3Cstop offset='100%25' stop-color='%2316785F'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='IBM Plex Mono, monospace' font-size='24' font-weight='700' fill='white'%3EAI%3C/text%3E%3C/svg%3E">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Cockpit navigation">
+      <div class="brand-block">
+        <div class="brand-mark">AI</div>
+        <div>
+          <div class="brand-title">AI Governance</div>
+          <div class="brand-subtitle">Case Study</div>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-item active" type="button" data-target="overview"><i class="fa-solid fa-compass"></i>Overview</button>
+        <button class="nav-item" type="button" data-target="decision-demo"><i class="fa-solid fa-shuffle"></i>Decision Demo</button>
+        <button class="nav-item" type="button" data-target="case-study"><i class="fa-solid fa-layer-group"></i>Case Study Brief</button>
+        <button class="nav-item" type="button" data-target="commercial-ops"><i class="fa-solid fa-chart-line"></i>Data Workflow Cockpit</button>
+        <button class="nav-item" type="button" data-target="adoption"><i class="fa-solid fa-sitemap"></i>Adoption & Governance</button>
+        <button class="nav-item" type="button" data-target="training-material"><i class="fa-solid fa-chalkboard-user"></i>Training Material</button>
+        <button class="nav-item" type="button" data-target="automations"><i class="fa-solid fa-bolt"></i>Automations</button>
+        <button class="nav-item" type="button" data-target="product"><i class="fa-solid fa-box-open"></i>Product Brief</button>
+        <button class="nav-item" type="button" data-target="methodology"><i class="fa-solid fa-flask"></i>Methodology</button>
+      </nav>
+
+      <div class="sidebar-note">
+        Simulated regulated workflow<br>
+        Fully static portfolio prototype
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-header">
+        <div>
+          <div class="header-title" id="current-view-title">Overview</div>
+          <div class="header-subtitle" id="header-subtitle">Data Analytics · AI Governance · Workflow Automation</div>
+        </div>
+        <div class="profile-chip">
+          <span class="profile-dot"></span>
+          <span id="profile-label">AI Business Implementation Portfolio Case Study</span>
+        </div>
+      </header>
+
+      <div class="views-container">
+        <section id="overview" class="view-section active">
+          <div class="glass-panel hero-section">
+            <div class="eyebrow">Interactive case study</div>
+            <h1 id="project-title">Regulated AI & Data Governance Cockpit</h1>
+            <p class="hero-subtitle" id="project-subtitle"></p>
+            <p class="hero-intent" id="project-positioning"></p>
+            <p class="hero-review-line" id="hero-review-line"></p>
+
+            <div class="hero-divider"></div>
+            <div class="hero-actions">
+              <button class="jump-button primary-demo-cta" id="cta-demo" type="button" data-nav-target="decision-demo">Open Decision Demo</button>
+              <button class="jump-button" id="cta-cockpit" type="button" data-nav-target="commercial-ops">Review Data Workflow Layer</button>
+              <button class="jump-button" id="cta-adoption" type="button" data-nav-target="adoption">Review Adoption/Governance Layer</button>
+              <button class="jump-button" id="cta-product" type="button" data-nav-target="product">Review Product Layer</button>
+            </div>
+
+            <div class="kpi-grid">
+              <article class="kpi-card">
+                <div class="kpi-label">Total Pipeline</div>
+                <div class="kpi-value" id="kpi-total-pipeline" aria-live="polite">Loading...</div>
+              </article>
+              <article class="kpi-card emphasis">
+                <div class="kpi-label">Weighted Pipeline</div>
+                <div class="kpi-value" id="kpi-weighted-pipeline" aria-live="polite">Loading...</div>
+              </article>
+              <article class="kpi-card">
+                <div class="kpi-label">Target Accounts</div>
+                <div class="kpi-value" id="kpi-accounts" aria-live="polite">Loading...</div>
+              </article>
+              <article class="kpi-card">
+                <div class="kpi-label">Avg Current Stage Age</div>
+                <div class="kpi-value" id="kpi-stage-age" aria-live="polite">Loading...</div>
+              </article>
+              <article class="kpi-card">
+                <div class="kpi-label">PoC Readiness Avg.</div>
+                <div class="kpi-value" id="kpi-poc" aria-live="polite">Loading...</div>
+              </article>
+            </div>
+
+            <div class="disclaimer-box">
+              <i class="fa-solid fa-circle-info"></i>
+              <span id="project-disclaimer"></span>
+            </div>
+          </div>
+
+          <div class="section-heading compact">
+            <h2>Four Review Paths</h2>
+            <p>Start with the angle that matches your role first: data and risk, digital AI governance, workflow operations, or product thinking.</p>
+          </div>
+          <div class="review-paths-grid" id="review-paths-grid"></div>
+          <div class="glass-panel reviewer-guide-panel">
+            <div class="eyebrow">Reviewer shortcut</div>
+            <h3>For Data, AI Governance & Innovation Reviewers</h3>
+            <p>A fast path through the project if you want the strongest evidence before inspecting every operational detail.</p>
+            <div class="checklist reviewer-guide-list" id="reviewer-guide-list"></div>
+          </div>
+
+          <div class="section-heading compact">
+            <h2>Executive Insights</h2>
+            <p>Operational signals, likely causes, and the actions this cockpit is meant to enable.</p>
+          </div>
+          <div class="insights-grid" id="insights-grid"></div>
+        </section>
+
+        <section id="decision-demo" class="view-section">
+          <div class="section-heading">
+            <div class="eyebrow">Navigable decision room</div>
+            <h2>From AI use case intake to governed pilot</h2>
+            <p>A reviewer can switch simulated accounts, move across governance gates, and see the evidence, blocker, decision, and artifact needed before the workflow reaches the main cockpit.</p>
+          </div>
+
+          <div class="decision-demo-shell">
+            <aside class="glass-panel decision-demo-queue">
+              <div class="eyebrow">Use case queue</div>
+              <h3>Choose a scenario</h3>
+              <div class="decision-demo-account-list" id="decision-demo-accounts"></div>
+            </aside>
+
+            <article class="glass-panel decision-demo-room">
+              <div class="decision-demo-status">
+                <span id="decision-demo-sector">Sector</span>
+                <strong id="decision-demo-gate-count">Gate 1 of 1</strong>
+              </div>
+              <h3 id="decision-demo-title">Loading demo...</h3>
+              <p id="decision-demo-context"></p>
+
+              <div class="decision-gate-rail" id="decision-demo-gates" aria-label="Governance gate steps"></div>
+
+              <div class="decision-demo-board">
+                <div>
+                  <span class="decision-demo-label">Gate check</span>
+                  <p id="decision-demo-check"></p>
+                </div>
+                <div>
+                  <span class="decision-demo-label">Evidence required</span>
+                  <p id="decision-demo-evidence"></p>
+                </div>
+                <div>
+                  <span class="decision-demo-label">Current blocker</span>
+                  <p id="decision-demo-blocker"></p>
+                </div>
+                <div>
+                  <span class="decision-demo-label">Decision</span>
+                  <p id="decision-demo-decision"></p>
+                </div>
+              </div>
+
+              <div class="decision-demo-artifact">
+                <span class="decision-demo-label">Reviewer-visible artifact</span>
+                <strong id="decision-demo-artifact"></strong>
+              </div>
+
+              <div class="demo-control-row">
+                <button class="jump-button" id="decision-demo-prev" type="button"><i class="fa-solid fa-arrow-left"></i>Previous gate</button>
+                <button class="jump-button" id="decision-demo-next" type="button">Next gate<i class="fa-solid fa-arrow-right"></i></button>
+                <button class="jump-button" type="button" data-nav-target="commercial-ops">Open workflow cockpit</button>
+                <button class="jump-button" type="button" data-nav-target="adoption">Open governance layer</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="case-study" class="view-section">
+          <div class="section-heading">
+            <div class="eyebrow">Case study brief</div>
+            <h2>Enterprise-Readable Project Summary</h2>
+            <p>This page is designed for recruiters or hiring managers who need to understand the project in under two minutes before exploring the cockpit in detail.</p>
+          </div>
+
+          <div class="summary-grid">
+            <article class="glass-panel summary-card summary-card-wide">
+              <div class="eyebrow">One-line summary</div>
+              <h3 id="case-study-summary"></h3>
+              <p class="method-note">Designed as a portfolio case study for data-driven AI workflow design, responsible AI governance, adoption thinking, and product-oriented documentation.</p>
+            </article>
+
+            <article class="glass-panel summary-card">
+              <h3>Context</h3>
+              <p id="case-study-context"></p>
+            </article>
+
+            <article class="glass-panel summary-card">
+              <h3>Problem</h3>
+              <p id="case-study-problem"></p>
+            </article>
+
+            <article class="glass-panel summary-card">
+              <h3>Solution</h3>
+              <p id="case-study-solution"></p>
+            </article>
+
+            <article class="glass-panel summary-card">
+              <h3>My Role</h3>
+              <p id="case-study-role"></p>
+            </article>
+
+            <article class="glass-panel summary-card">
+              <h3>Business Value</h3>
+              <p id="case-study-value"></p>
+            </article>
+
+            <article class="glass-panel summary-card">
+              <h3>Limitations</h3>
+              <p id="case-study-limitations"></p>
+            </article>
+          </div>
+
+          <div class="section-heading compact">
+            <h2>Key Outputs</h2>
+            <p>The project is intentionally documented so the same prototype can be read from a data/risk, AI governance, workflow operations, or product angle.</p>
+          </div>
+
+          <div class="key-output-grid" id="case-study-outputs"></div>
+
+          <div class="glass-panel final-note">
+            <h3>Next Iteration</h3>
+            <p id="case-study-next-iteration"></p>
+          </div>
+        </section>
+
+        <section id="commercial-ops" class="view-section">
+          <div class="section-heading">
+            <div class="eyebrow">Data workflow cockpit</div>
+            <h2>Forecast Logic, Scoring, Handoff, and Governance Signals</h2>
+            <p>This section groups the operational layer of the case study into one executive-friendly entry point while keeping every underlying module accessible.</p>
+          </div>
+
+          <div class="glass-panel cockpit-overview">
+            <div class="cockpit-overview-copy">
+              <div class="eyebrow">Operational layer</div>
+              <h3>One section, six operational views</h3>
+              <p>Use these subsections to inspect forecast discipline, CRM motion, account prioritization, structured briefs, handoff quality, and operational bottlenecks without exposing every module in the primary navigation.</p>
+            </div>
+
+            <div class="section-anchor-grid">
+              <a class="section-anchor-card" href="#forecast-section">
+                <span class="section-anchor-label">Forecast</span>
+                <span class="section-anchor-copy">Weighted pipeline, stage-level mix, and account concentration.</span>
+              </a>
+              <a class="section-anchor-card" href="#pipeline-section">
+                <span class="section-anchor-label">Pipeline</span>
+                <span class="section-anchor-copy">CRM stage motion, probability logic, and exit discipline.</span>
+              </a>
+              <a class="section-anchor-card" href="#scoring-section">
+                <span class="section-anchor-label">Scoring</span>
+                <span class="section-anchor-copy">The weighted prioritization model behind target account focus.</span>
+              </a>
+              <a class="section-anchor-card" href="#brief-section">
+                <span class="section-anchor-label">Brief Simulator</span>
+                <span class="section-anchor-copy">A structured workflow for AI-assisted account brief generation.</span>
+              </a>
+              <a class="section-anchor-card" href="#playbook-section">
+                <span class="section-anchor-label">Playbook</span>
+                <span class="section-anchor-copy">Sales-to-CS handoff logic and qualification guardrails.</span>
+              </a>
+              <a class="section-anchor-card" href="#diagnostics-section">
+                <span class="section-anchor-label">Diagnostics</span>
+                <span class="section-anchor-copy">Signals, likely causes, and suggested ops interventions.</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="cockpit-subsection" id="forecast-section">
+            <div class="section-heading compact">
+              <div class="eyebrow">Forecast</div>
+              <h2>Pipeline Health and Weighted Forecast</h2>
+              <p>Weighted pipeline applies stage probability to raw deal value, separating commercial volume from likely forecast contribution.</p>
+            </div>
+
+            <div class="metric-strip">
+              <article class="metric-card">
+                <div class="metric-label">Total Pipeline</div>
+                <div class="metric-value" id="dashboard-total-pipeline" aria-live="polite">Loading...</div>
+              </article>
+              <article class="metric-card">
+                <div class="metric-label">Weighted Pipeline</div>
+                <div class="metric-value" id="dashboard-weighted-pipeline" aria-live="polite">Loading...</div>
+              </article>
+              <article class="metric-card">
+                <div class="metric-label">Open Opportunities</div>
+                <div class="metric-value" id="dashboard-open-opps" aria-live="polite">Loading...</div>
+              </article>
+              <article class="metric-card">
+                <div class="metric-label">Average Fit Score</div>
+                <div class="metric-value" id="dashboard-fit-score" aria-live="polite">Loading...</div>
+              </article>
+            </div>
+
+            <div class="charts-grid">
+              <article class="glass-panel chart-card wide">
+                <div class="chart-header">Total vs Weighted Pipeline by Stage</div>
+                <div class="chart-container"><canvas id="pipelineChart"></canvas></div>
+              </article>
+              <article class="glass-panel chart-card">
+                <div class="chart-header">Target Accounts by Sector</div>
+                <div class="chart-container"><canvas id="sectorChart"></canvas></div>
+              </article>
+              <article class="glass-panel chart-card">
+                <div class="chart-header">Average Days in Current Stage</div>
+                <div class="chart-container"><canvas id="daysChart"></canvas></div>
+              </article>
+              <article class="glass-panel chart-card wide">
+                <div class="chart-header">Top Accounts by Weighted Fit Score</div>
+                <div class="chart-container"><canvas id="fitChart"></canvas></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="cockpit-subsection" id="pipeline-section">
+            <div class="section-heading compact">
+              <div class="eyebrow">CRM workflow</div>
+              <h2>Enterprise Pipeline Motion</h2>
+              <p>A 9-stage simulated enterprise AI sales process with explicit stage probabilities, weighted value, and exit discipline.</p>
+            </div>
+
+            <div class="glass-panel probability-panel">
+              <div class="panel-title">Stage Probability Reference</div>
+              <div class="probability-row" id="stage-probability-row"></div>
+            </div>
+
+            <div class="kanban-board" id="kanban-board"></div>
+
+            <div class="section-heading compact">
+              <h2>Critical Stage Exit Criteria</h2>
+              <p>The point is not just visualizing pipeline: the process should prevent weak deals from moving forward without the right evidence.</p>
+            </div>
+            <div class="criteria-grid" id="exit-criteria-grid"></div>
+          </div>
+
+          <div class="cockpit-subsection" id="scoring-section">
+            <div class="section-heading compact">
+              <div class="eyebrow">Prioritization framework</div>
+              <h2>Regulated Account Scoring</h2>
+              <p>Fit is calculated through an explicit weighted model, not assigned arbitrarily.</p>
+            </div>
+
+            <div class="glass-panel formula-panel">
+              <h3>Scoring Methodology</h3>
+              <p class="formula-text" id="scoring-formula"></p>
+              <p class="method-note" id="scoring-scale"></p>
+              <div class="weights-grid" id="scoring-weights"></div>
+            </div>
+
+            <div class="disclaimer-box scoring-disclaimer">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span id="scoring-disclaimer"></span>
+            </div>
+
+            <div class="glass-panel table-container">
+              <table id="scoring-table">
+                <thead>
+                  <tr>
+                    <th>Account</th>
+                    <th>Sector</th>
+                    <th>Regulatory</th>
+                    <th>Workflow/Data</th>
+                    <th>Fit</th>
+                    <th>Components</th>
+                    <th>Use Case Hypothesis</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="cockpit-subsection" id="brief-section">
+            <div class="section-heading compact">
+              <div class="eyebrow">LLM workflow simulation</div>
+              <h2>LLM-Assisted Account Brief Simulator</h2>
+              <p>This module shows how a structured brief could support Sales and Customer Success using approved data sources and CRM context. It is a simulation, not a live AI integration.</p>
+            </div>
+
+            <div class="brief-layout">
+              <aside class="glass-panel brief-control-panel">
+                <label for="account-select">Target account</label>
+                <select id="account-select"></select>
+                <button id="generate-brief" class="primary-button" type="button">Generate Structured Brief</button>
+
+                <div class="prompt-box">
+                  <h3>Prompt Structure</h3>
+                  <ol id="brief-prompt-structure"></ol>
+                </div>
+              </aside>
+
+              <div class="glass-panel brief-output-panel" id="brief-output">
+                <div class="empty-state">
+                  <i class="fa-regular fa-file-lines"></i>
+                  <p>Select an account to generate a structured account brief simulation.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cockpit-subsection" id="playbook-section">
+            <div class="section-heading compact">
+              <div class="eyebrow">Operational documentation</div>
+              <h2>Sales-to-Customer Success Handoff Playbook</h2>
+              <p>Commercial Operations value comes from making handoffs inspectable, repeatable, and less dependent on ad hoc context transfer.</p>
+            </div>
+
+            <div class="playbook-grid">
+              <article class="glass-panel playbook-card">
+                <h3>Before Customer Success Handoff</h3>
+                <ul class="checklist" id="handoff-checklist"></ul>
+              </article>
+
+              <article class="glass-panel playbook-card">
+                <h3>Commercial Qualification for Regulated AI</h3>
+                <p class="method-note">This is not a legal assessment. It is a Commercial Ops qualification layer to identify governance, privacy, auditability, and deployment questions before involving Legal, Security, or Compliance teams.</p>
+                <ul class="checklist" id="compliance-checklist"></ul>
+              </article>
+            </div>
+          </div>
+
+          <div class="cockpit-subsection" id="diagnostics-section">
+            <div class="section-heading compact">
+              <div class="eyebrow">Diagnostics</div>
+              <h2>Pipeline Bottlenecks and Ops Actions</h2>
+              <p>The dashboard should not only display data; it should turn signals into operational interventions.</p>
+            </div>
+
+            <div class="glass-panel table-container">
+              <table id="bottlenecks-table">
+                <thead>
+                  <tr>
+                    <th>Area</th>
+                    <th>Signal</th>
+                    <th>Likely Cause</th>
+                    <th>Suggested Ops Action</th>
+                    <th>Expected Impact</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="automations" class="view-section">
+          <div class="section-heading">
+            <div class="eyebrow">Automation layer</div>
+            <h2>From Signal to Action: No-Code Workflow Design</h2>
+            <p>This section demonstrates how operational signals from the cockpit could trigger real-world actions through automation tools like n8n, Make, Zapier, Power Automate, or Copilot Studio — without custom backend development.</p>
+          </div>
+
+          <div class="glass-panel automation-intro">
+            <h3>Why automations matter for this profile</h3>
+            <p>The cockpit identifies signals (bottlenecks, high-fit accounts, stalled deals). Automations close the loop by turning those signals into assigned tasks, alerts, and scheduled follow-ups. This bridges the gap between analysis and execution — the core value of a business/AI implementation profile.</p>
+          </div>
+
+          <div class="workflow-grid" id="workflow-grid"></div>
+
+          <div class="glass-panel final-note">
+            <h3>Tooling Note</h3>
+            <p id="automation-tool-note"></p>
+          </div>
+        </section>
+
+        <section id="adoption" class="view-section">
+          <div class="section-heading">
+            <div class="eyebrow">AI adoption layer</div>
+            <h2>Adoption and Governance</h2>
+            <p>This extension reframes the cockpit as an enterprise AI adoption case: stakeholder alignment, rollout logic, training, guardrails, and measurable adoption outcomes.</p>
+          </div>
+
+          <div class="glass-panel table-container">
+            <div class="panel-title">Stakeholder Map</div>
+            <table id="stakeholder-table">
+              <thead>
+                <tr>
+                  <th>Stakeholder</th>
+                  <th>Main Need</th>
+                  <th>Role in Adoption</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <div class="section-heading compact">
+            <h2>Rollout Plan</h2>
+            <p>A practical adoption path matters as much as the interface itself.</p>
+          </div>
+
+          <div class="glass-panel table-container">
+            <table id="rollout-table">
+              <thead>
+                <tr>
+                  <th>Phase</th>
+                  <th>Goal</th>
+                  <th>Output</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <div class="adoption-grid">
+            <article class="glass-panel playbook-card">
+              <h3>Guardrails</h3>
+              <p class="panel-note">Reference guardrails for the case study. Intentionally read-only.</p>
+              <ul class="checklist reference-list" id="guardrails-list"></ul>
+            </article>
+
+            <article class="glass-panel playbook-card">
+              <h3>Training Plan</h3>
+              <p class="panel-note">Illustrative rollout audiences and enablement focus. Intentionally read-only.</p>
+              <ul class="checklist reference-list" id="training-list"></ul>
+            </article>
+          </div>
+
+          <div class="section-heading compact">
+            <h2>Consulting-Style Deliverables</h2>
+            <p>These are the concrete outputs I would expect to produce around adoption, not only the interface itself.</p>
+          </div>
+
+          <div class="glass-panel table-container">
+            <table id="deliverables-table">
+              <thead>
+                <tr>
+                  <th>Deliverable</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <div class="section-heading compact">
+            <h2>Adoption KPIs</h2>
+            <p>Adoption should be measured as operational behavior, not only as a demo success.</p>
+          </div>
+
+          <div class="key-output-grid" id="adoption-metrics"></div>
+
+          <div class="section-heading compact">
+            <h2>Exportable Deliverable</h2>
+            <p>Download a client-ready Governance Checklist generated from the cockpit data.</p>
+          </div>
+
+          <div class="glass-panel pdf-export-panel">
+            <div class="pdf-export-info">
+              <div>
+                <h3>Governance Checklist PDF</h3>
+                <p>A one-page, client-ready deliverable covering adoption guardrails, human oversight requirements, and operational risk boundaries. Generated dynamically from the cockpit governance layer.</p>
+              </div>
+              <button class="primary-button pdf-button" id="export-governance-pdf" type="button">
+                <i class="fa-solid fa-file-pdf"></i> Download Governance Checklist
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section id="training-material" class="view-section">
+          <div class="section-heading">
+            <div class="eyebrow">Enablement deliverable</div>
+            <h2>Training Material Example</h2>
+            <p id="training-material-intro"></p>
+          </div>
+
+          <div class="glass-panel table-container">
+            <div class="panel-title">Workshop Agenda</div>
+            <table id="training-agenda-table">
+              <thead>
+                <tr>
+                  <th>Timing</th>
+                  <th>Topic</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <div class="section-heading compact">
+            <h2>Learning Objectives</h2>
+            <p>Example outcomes I would want participants to leave with after an AI adoption workshop.</p>
+          </div>
+
+          <div class="glass-panel">
+            <ul class="checklist" id="learning-objectives-list"></ul>
+          </div>
+
+          <div class="section-heading compact">
+            <h2>Five-Slide Outline</h2>
+            <p>A lightweight slide storyline for a first enablement session with business and governance stakeholders.</p>
+          </div>
+
+          <div class="key-output-grid" id="slide-outline-grid"></div>
+        </section>
+
+        <section id="product" class="view-section">
+          <div class="section-heading">
+            <div class="eyebrow">Mini PRD</div>
+            <h2>Product Brief</h2>
+            <p>This page reframes the cockpit as a product case: user needs, MVP boundaries, metrics, and a realistic future backlog.</p>
+          </div>
+
+          <div class="summary-grid">
+            <article class="glass-panel summary-card summary-card-wide">
+              <h3>Problem Statement</h3>
+              <p id="product-problem"></p>
+            </article>
+          </div>
+
+          <div class="glass-panel table-container">
+            <div class="panel-title">Target Users</div>
+            <table id="users-table">
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Main Need</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <div class="section-heading compact">
+            <h2>User Stories</h2>
+            <p>The goal is to show that the workflow can be translated into product reasoning rather than treated only as a dashboard.</p>
+          </div>
+
+          <div class="story-grid" id="user-stories"></div>
+
+          <div class="product-scope-grid">
+            <article class="glass-panel playbook-card">
+              <h3>MVP Scope</h3>
+              <div class="scope-columns">
+                <div>
+                  <div class="scope-title">In Scope</div>
+                  <ul class="checklist" id="scope-in"></ul>
+                </div>
+                <div>
+                  <div class="scope-title">Out of Scope</div>
+                  <ul class="checklist" id="scope-out"></ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="glass-panel playbook-card">
+              <h3>Product Metrics</h3>
+              <ul class="checklist" id="product-metrics"></ul>
+            </article>
+          </div>
+
+          <div class="section-heading compact">
+            <h2>Business Metrics Framework</h2>
+            <p>Product metrics should always trace back to measurable business outcomes. This framework links cockpit usage signals to commercial impact.</p>
+          </div>
+
+          <div class="glass-panel table-container">
+            <table id="business-metrics-table">
+              <thead>
+                <tr>
+                  <th>Product Metric</th>
+                  <th>Business Impact</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <div class="section-heading compact">
+            <h2>Research & Validation Notes</h2>
+            <p>How product decisions were informed by desk research, industry patterns, and simulated stakeholder interviews.</p>
+          </div>
+
+          <div class="research-grid" id="research-grid"></div>
+
+          <div class="section-heading compact">
+            <h2>Backlog</h2>
+            <p>The backlog emphasizes business clarity, explainability, and workflow usefulness over technical complexity for its own sake.</p>
+          </div>
+
+          <div class="glass-panel table-container">
+            <table id="backlog-table">
+              <thead>
+                <tr>
+                  <th>Priority</th>
+                  <th>Feature</th>
+                  <th>Reason</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <div class="section-heading compact">
+            <h2>Product Decision Log</h2>
+            <p>This makes the product judgment explicit: what was intentionally simplified, constrained, or prioritized in this prototype.</p>
+          </div>
+
+          <div class="glass-panel table-container">
+            <table id="decision-log-table">
+              <thead>
+                <tr>
+                  <th>Decision</th>
+                  <th>Reason</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="methodology" class="view-section">
+          <div class="section-heading">
+            <div class="eyebrow">Transparency</div>
+            <h2>Methodology and Assumptions</h2>
+            <p>This section is deliberately explicit to avoid presenting simulated data as real pipeline intelligence.</p>
+          </div>
+
+          <div class="methodology-grid" id="methodology-grid"></div>
+
+          <div class="glass-panel final-note">
+            <h3>What I would do with real CRM data</h3>
+            <p>With access to a live CRM environment, I would validate stage probabilities using historical conversion rates, measure sales cycle by sector, analyze drop-off reasons before PoC, inspect stakeholder coverage by account, and correlate compliance readiness with deal velocity.</p>
+          </div>
+        </section>
+      </div>
+
+      <footer class="site-footer">
+        <small>Last updated: Apr 2026 &middot; Portfolio case study using simulated data</small>
+      </footer>
+    </main>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

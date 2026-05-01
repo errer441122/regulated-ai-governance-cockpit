@@ -1,0 +1,15 @@
+{
+  "rows": 10,
+  "columns": 13,
+  "missing_columns": [],
+  "unexpected_columns": [],
+  "duplicate_count": 0,
+  "issues": [],
+  "ready_for_brief_count": 9,
+  "average_readiness_score": 3.54,
+  "readiness_class_counts": {
+    "needs_foundation_work": 4,
+    "needs_targeted_preparation": 3,
+    "ready_for_controlled_pilot": 3
+  }
+}

@@ -1,0 +1,11 @@
+organization,sector,use_case,data_source,data_sensitivity,metadata_quality,process_maturity,stakeholder_clarity,automation_potential,ai_governance_readiness,estimated_users,criticality,approved_for_brief,readiness_score,readiness_class
+Regional Health Data Office,Public services,Human-reviewed triage summary,case-management exports,high,4,3,4,3,4,180,high,yes,3.7,needs_targeted_preparation
+Manufacturing SME Pilot Line,Manufacturing,Machine-event anomaly routing,industrial IoT logs,medium,3,4,3,4,3,65,medium,yes,3.3,needs_foundation_work
+Energy Grid Operations Team,Utilities,Maintenance knowledge-base assistant,maintenance tickets,high,4,4,4,3,5,120,high,yes,4.1,needs_targeted_preparation
+Municipal Digital Services Unit,Public administration,Citizen-service request clustering,service portal tickets,medium,3,3,3,4,4,250,medium,yes,3.4,needs_targeted_preparation
+Retail CX Analytics Team,Customer analytics,Customer feedback insight brief,survey and CRM exports,medium,4,4,5,4,4,90,medium,yes,4.2,ready_for_controlled_pilot
+Research HPC Support Desk,Research infrastructure,AI workload intake classifier,support requests and metadata forms,medium,5,4,4,3,5,45,high,yes,4.35,ready_for_controlled_pilot
+Insurance Reporting Office,Financial services,Agentic reporting checklist,structured reporting dataset,high,4,5,4,4,5,75,high,yes,4.4,ready_for_controlled_pilot
+AgriTech Innovation Hub,Agritech,Dataset readiness triage,field sensor summaries,medium,2,3,3,3,3,40,medium,yes,2.75,needs_foundation_work
+Training and Capacity Team,International development,Responsible AI training needs map,workshop feedback,low,3,3,4,2,4,300,medium,yes,3.3,needs_foundation_work
+Legacy Procurement Function,Operations,Procurement document summarization,shared-drive documents,high,1,2,2,3,2,35,high,no,1.9,needs_foundation_work

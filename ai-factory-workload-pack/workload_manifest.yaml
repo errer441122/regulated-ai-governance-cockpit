@@ -1,0 +1,88 @@
+workload_id: regulated-ai-governance-reviewer-pack
+workload_name: regulated_ai_human_review_triage
+version: "0.1"
+owner_context: portfolio-review
+portfolio_status: simulation_only
+task_type: binary_classification
+decision_boundary: advisory_human_review_only
+intended_reviewers:
+  - CINECA
+  - IT4LIA
+  - BI-REX
+  - CRIF ML Engineering
+data:
+  source: simulated_regulated_workflows
+  rows: 24
+  sensitive_data: false
+  pii: false
+  metadata_file: fair_metadata_example.json
+  data_card: ../ml-baseline/data_card.md
+compute:
+  local_runtime_seconds:
+    hpc_mlops_lab: 0.16
+    ml_baseline: 1.35
+    production_sim_stack: 0.08
+  cpu_cores_requested: 2
+  memory_requested_gb: 4
+  gpu_required: false
+  slurm_entrypoint: ../hpc/run_pipeline.sbatch
+  container_definition: apptainer.def
+entrypoints:
+  slurm: hpc/run_pipeline.sbatch
+  ml_baseline: ml-baseline/train_model.py
+  production_sim: production-sim-stack/src/orchestrate.py
+  rag_benchmark: hpc-ai-rag-lab/src/benchmark.py
+inputs:
+  - path: hpc-mlops-industrial-lab/data/regulated_workflows.csv
+    classification: simulated-public-portfolio-data
+    contains_personal_data: false
+    role: regulated workflow training and evaluation sample
+  - path: production-sim-stack/data/public_development_sample.csv
+    classification: public-development-style-sample
+    contains_personal_data: false
+    role: capacity-support scoring sample
+  - path: hpc-ai-rag-lab/data/sample_governance_docs
+    classification: synthetic-governance-documentation
+    contains_personal_data: false
+    role: lightweight retrieval benchmark sample
+outputs:
+  - path: ml-baseline/reports/metrics.example.json
+    type: model-evaluation-summary
+  - path: ml-baseline/reports/predictions_sample.csv
+    type: reviewer-prediction-sample
+  - path: production-sim-stack/artifacts/run_manifest.json
+    type: lifecycle-run-manifest
+  - path: hpc-mlops-industrial-lab/artifacts/model_card.json
+    type: model-card
+  - path: hpc-ai-rag-lab/artifacts/retrieval_benchmark.json
+    type: local-cpu-retrieval-benchmark
+artifacts:
+  metrics: ../ml-baseline/reports/metrics.example.json
+  predictions: ../ml-baseline/reports/predictions_sample.csv
+  model_card: ../ml-baseline/model_card.md
+  data_card: ../ml-baseline/data_card.md
+  sql_mart: ../sql/reviewer_feature_mart.duckdb.sql
+resources:
+  cpu_baseline:
+    nodes: 1
+    tasks: 1
+    cpus_per_task: 2
+    memory: 4G
+    time_limit: "00:10:00"
+  gpu_extension:
+    required: false
+    note: CPU is sufficient for this small scikit-learn workload; GPU would matter only for larger AI workload variants.
+compliance_boundary:
+  no_automated_decision: true
+  human_review_required: true
+  simulated_data_only: true
+  no_real_cluster_execution_claimed: true
+  decision_use: advisory human-review triage only
+  prohibited_use:
+    - automated credit or eligibility decisioning
+    - legal compliance certification
+    - production public-service allocation
+lineage:
+  run_command: sbatch hpc/run_pipeline.sbatch
+  container: ai-factory-workload-pack/apptainer.def
+  metadata_record: ai-factory-workload-pack/fair_metadata_example.json

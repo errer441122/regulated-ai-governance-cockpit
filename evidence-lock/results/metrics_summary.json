@@ -1,0 +1,25 @@
+{
+  "api_smoke_test": "run make smoke or python -m src.regulated_ai_governance.api_smoke_test",
+  "boundary": "Portfolio evidence summary only; no production, legal, credit, or aid-allocation use.",
+  "calibration": "included",
+  "data_quality": "passed",
+  "dataset": "synthetic regulated risk dataset plus public Wisconsin Diagnostic Breast Cancer lab",
+  "docker_smoke_test": "documented in evidence/docker-smoke-test.md",
+  "drift_check": "included",
+  "limitations": "included",
+  "metrics": {
+    "brier_score": 0.0301,
+    "f1": 0.8667,
+    "pr_auc": 0.976,
+    "recall": 1.0,
+    "roc_auc": 0.996
+  },
+  "model": "Logistic Regression + RandomForest baseline",
+  "public_risk_lab": {
+    "brier_score": 0.0224,
+    "dataset": "Wisconsin Diagnostic Breast Cancer public dataset",
+    "f1": 0.9515,
+    "roc_auc": 0.9962,
+    "selected_model": "logistic_regression"
+  }
+}

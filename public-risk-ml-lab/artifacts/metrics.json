@@ -1,0 +1,62 @@
+{
+  "boundary": "Public real-data proxy only; not a clinical, credit, legal, or production model.",
+  "brier_score": 0.0224,
+  "confusion_matrix": [
+    [
+      89,
+      1
+    ],
+    [
+      4,
+      49
+    ]
+  ],
+  "dataset": "Wisconsin Diagnostic Breast Cancer public dataset",
+  "f1": 0.9515,
+  "models": {
+    "logistic_regression": {
+      "brier_score": 0.0224,
+      "confusion_matrix": [
+        [
+          89,
+          1
+        ],
+        [
+          4,
+          49
+        ]
+      ],
+      "f1": 0.9515,
+      "pr_auc": 0.9943,
+      "precision": 0.98,
+      "recall": 0.9245,
+      "roc_auc": 0.9962
+    },
+    "random_forest": {
+      "brier_score": 0.0313,
+      "confusion_matrix": [
+        [
+          90,
+          0
+        ],
+        [
+          5,
+          48
+        ]
+      ],
+      "f1": 0.9505,
+      "pr_auc": 0.9938,
+      "precision": 1.0,
+      "recall": 0.9057,
+      "roc_auc": 0.996
+    }
+  },
+  "pr_auc": 0.9943,
+  "precision": 0.98,
+  "recall": 0.9245,
+  "roc_auc": 0.9962,
+  "rows": 569,
+  "selected_model": "logistic_regression",
+  "test_rows": 143,
+  "train_rows": 426
+}

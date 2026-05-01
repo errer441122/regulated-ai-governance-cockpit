@@ -1,0 +1,65 @@
+{
+  "bins": [
+    {
+      "actual_pct": 0.099667,
+      "bin": 1,
+      "contribution": 0.0,
+      "expected_pct": 0.099825
+    },
+    {
+      "actual_pct": 0.099567,
+      "bin": 2,
+      "contribution": 4e-06,
+      "expected_pct": 0.100175
+    },
+    {
+      "actual_pct": 0.106633,
+      "bin": 3,
+      "contribution": 0.000426,
+      "expected_pct": 0.1
+    },
+    {
+      "actual_pct": 0.0996,
+      "bin": 4,
+      "contribution": 2e-06,
+      "expected_pct": 0.1
+    },
+    {
+      "actual_pct": 0.100433,
+      "bin": 5,
+      "contribution": 2e-06,
+      "expected_pct": 0.1
+    },
+    {
+      "actual_pct": 0.1011,
+      "bin": 6,
+      "contribution": 1.2e-05,
+      "expected_pct": 0.1
+    },
+    {
+      "actual_pct": 0.097333,
+      "bin": 7,
+      "contribution": 7.2e-05,
+      "expected_pct": 0.1
+    },
+    {
+      "actual_pct": 0.100367,
+      "bin": 8,
+      "contribution": 1e-06,
+      "expected_pct": 0.1
+    },
+    {
+      "actual_pct": 0.094633,
+      "bin": 9,
+      "contribution": 0.000296,
+      "expected_pct": 0.1
+    },
+    {
+      "actual_pct": 0.100667,
+      "bin": 10,
+      "contribution": 4e-06,
+      "expected_pct": 0.1
+    }
+  ],
+  "psi": 0.000819
+}

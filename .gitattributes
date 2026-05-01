@@ -1,0 +1,13 @@
+# Static portfolio/demo layer, not the core ML implementation.
+index.html linguist-documentation
+styles.css linguist-documentation
+app.js linguist-documentation
+data.js linguist-documentation
+social-preview.png linguist-generated
+
+# Generated reviewer evidence.
+evidence-lock/results/** linguist-generated
+public-risk-ml-lab/artifacts/** linguist-generated
+business-data-quality-lab/*.md linguist-generated
+undp-public-data-gis-lab/artifacts/** linguist-generated
+hpc-pytorch-benchmark/artifacts/** linguist-generated

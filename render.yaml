@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: regulated-ai-governance-api
+    runtime: docker
+    plan: free
+    region: frankfurt
+    rootDir: production-sim-stack
+    healthCheckPath: /health
+    autoDeployTrigger: checksPass
