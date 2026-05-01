@@ -1,0 +1,49 @@
+{
+  "artifact_version": 1,
+  "status": "example_not_executed",
+  "generated_at_utc": "YYYY-MM-DDTHH:MM:SSZ",
+  "environment": {
+    "runtime": "Google Colab free GPU target",
+    "python": "recorded_at_run_time",
+    "torch": "recorded_at_run_time",
+    "cuda_available": true,
+    "cuda_device_name": "Tesla T4 or actual allocated GPU",
+    "cuda_version": "recorded_at_run_time"
+  },
+  "dataset": {
+    "name": "GiveMeSomeCredit",
+    "openml_id": 46929,
+    "rows": 150000,
+    "features": 10,
+    "target": "FinancialDistressNextTwoYears"
+  },
+  "runs": [
+    {
+      "label": "cpu_fp32",
+      "device": "cpu",
+      "precision": "fp32",
+      "wall_time_seconds": 0.0,
+      "throughput_samples_per_second": 0.0,
+      "process_rss_delta_mb": 0.0
+    },
+    {
+      "label": "gpu_amp",
+      "device": "cuda",
+      "precision": "torch.amp.float16",
+      "wall_time_seconds": 0.0,
+      "throughput_samples_per_second": 0.0,
+      "gpu_peak_memory_allocated_mb": 0.0,
+      "gpu_peak_memory_reserved_mb": 0.0
+    }
+  ],
+  "comparison": {
+    "gpu_amp_vs_cpu_speedup_by_wall_time": 0.0,
+    "gpu_amp_vs_cpu_speedup_by_throughput": 0.0,
+    "gpu_amp_vs_gpu_fp32_speedup_by_throughput": 0.0
+  },
+  "outputs": {
+    "metrics_json": "artifacts/gpu_readiness_metrics.json",
+    "profiler_summary": "artifacts/profiler/gpu_amp_profiler_summary.txt",
+    "colab_report": "reports/gpu_readiness_report_colab.md"
+  }
+}

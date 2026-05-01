@@ -1,0 +1,4 @@
+data/
+artifacts/gpu_readiness_metrics.json
+artifacts/profiler/
+reports/gpu_readiness_report_colab.md
