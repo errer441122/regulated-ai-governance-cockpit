@@ -1,0 +1,11 @@
+rank,feature,importance_mean,importance_std
+1,RevolvingUtilizationOfUnsecuredLines,0.073975,0.006156
+2,NumberOfTimes90DaysLate,0.034748,0.000773
+3,NumberOfTime30-59DaysPastDueNotWorse,0.032943,0.001973
+4,NumberOfTime60-89DaysPastDueNotWorse,0.021353,0.000587
+5,age,0.013722,0.001798
+6,NumberOfOpenCreditLinesAndLoans,0.006177,0.00114
+7,NumberRealEstateLoansOrLines,0.004284,0.000889
+8,MonthlyIncome,0.004201,0.001163
+9,DebtRatio,0.00348,0.001037
+10,NumberOfDependents,0.000966,0.000775

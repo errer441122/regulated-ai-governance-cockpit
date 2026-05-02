@@ -2,7 +2,15 @@
   "average_sdg_risk_score": 0.3748,
   "boundary": "Briefing aid only; no automated aid, eligibility, procurement, targeting, or policy decisions.",
   "capacity_support_flags": 3,
-  "generated_at_utc": "2026-05-01T16:26:30+00:00",
+  "generated_at_utc": "2026-05-01T22:06:10+00:00",
+  "policy_brief": {
+    "path": "C:\\Users\\errer\\Desktop\\commercial_ops_cockpit_final_ready\\undp-sdg-risk-lab\\artifacts\\ai_for_sdgs_policy_brief.md",
+    "word_count": 1507
+  },
+  "policy_brief_charts": [
+    "C:\\Users\\errer\\Desktop\\commercial_ops_cockpit_final_ready\\undp-sdg-risk-lab\\artifacts\\ai_for_sdgs_risk_ranking.svg",
+    "C:\\Users\\errer\\Desktop\\commercial_ops_cockpit_final_ready\\undp-sdg-risk-lab\\artifacts\\ai_for_sdgs_indicator_heatmap.svg"
+  ],
   "rows": 10,
   "top_contexts": [
     "HTI",

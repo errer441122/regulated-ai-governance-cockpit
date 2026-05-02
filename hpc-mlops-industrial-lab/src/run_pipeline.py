@@ -58,6 +58,16 @@ FEATURE_NAMES = [
     "distance_to_bologna_km",
 ]
 
+INDUSTRIAL_MESSAGE_REQUIRED = {
+    "topic",
+    "asset_id",
+    "timestamp_utc",
+    "temperature_c",
+    "vibration_mm_s",
+    "cycle_time_ms",
+    "quality_flag",
+}
+
 
 @dataclass
 class ModelBundle:
@@ -129,6 +139,64 @@ def haversine_km(lat_a: float, lon_a: float, lat_b: float, lon_b: float) -> floa
 def count_text_risk_hits(text: str) -> int:
     tokens = {token.strip(".,:;()[]").lower() for token in text.split()}
     return len(tokens & RISK_TERMS)
+
+
+def validate_industrial_message(payload: dict[str, object]) -> dict[str, object]:
+    missing = sorted(INDUSTRIAL_MESSAGE_REQUIRED - set(payload))
+    topic = str(payload.get("topic", ""))
+    asset_id = str(payload.get("asset_id", ""))
+    numeric_fields = ["temperature_c", "vibration_mm_s", "cycle_time_ms"]
+    numeric_errors = []
+    for field in numeric_fields:
+        try:
+            float(payload.get(field, ""))
+        except (TypeError, ValueError):
+            numeric_errors.append(field)
+
+    topic_matches_asset = bool(topic.startswith("factory/") and asset_id and asset_id in topic)
+    valid = not missing and not numeric_errors and topic_matches_asset
+    return {
+        "valid": valid,
+        "asset_id": asset_id,
+        "protocol_style": "mqtt-opcua-telemetry",
+        "missing_fields": missing,
+        "numeric_errors": numeric_errors,
+        "topic_matches_asset": topic_matches_asset,
+    }
+
+
+def _bounded(value: float) -> float:
+    return max(0.0, min(1.0, value))
+
+
+def industrial_anomaly_score(payload: dict[str, object]) -> float:
+    temperature = float(payload.get("temperature_c", 0.0))
+    vibration = float(payload.get("vibration_mm_s", 0.0))
+    cycle_time = float(payload.get("cycle_time_ms", 0.0))
+    quality_flag = str(payload.get("quality_flag", "ok")).lower()
+
+    quality_score = {"ok": 0.0, "warning": 0.6, "critical": 1.0}.get(quality_flag, 0.4)
+    score = (
+        0.30 * _bounded((temperature - 65.0) / 25.0)
+        + 0.35 * _bounded((vibration - 3.0) / 5.0)
+        + 0.20 * _bounded((cycle_time - 1000.0) / 600.0)
+        + 0.15 * quality_score
+    )
+    return round(_bounded(score), 4)
+
+
+def threshold_operating_summary(scores: list[float], threshold: float = 0.5) -> dict[str, float]:
+    alerts = sum(1 for score in scores if score >= threshold)
+    sorted_scores = sorted(scores)
+    p95_index = min(len(sorted_scores) - 1, int(math.ceil(0.95 * len(sorted_scores))) - 1) if sorted_scores else 0
+    return {
+        "threshold": threshold,
+        "records": len(scores),
+        "alerts": alerts,
+        "alert_rate": round(alerts / len(scores), 4) if scores else 0.0,
+        "max_score": round(max(scores), 4) if scores else 0.0,
+        "p95_score": round(sorted_scores[p95_index], 4) if sorted_scores else 0.0,
+    }
 
 
 def enrich_rows(rows: list[dict[str, object]]) -> list[dict[str, object]]:
@@ -356,6 +424,32 @@ def write_artifacts(
     }
     model_card_path.write_text(json.dumps(model_card, indent=2, sort_keys=True), encoding="utf-8")
 
+    industrial_scores = [
+        industrial_anomaly_score(
+            {
+                "temperature_c": 50.0 + float(row["field_failure_signals"]) * 9.0,
+                "vibration_mm_s": 1.5 + float(row["field_failure_signals"]) * 1.4,
+                "cycle_time_ms": 850 + int(row["stage_age_days"]) * 8,
+                "quality_flag": "warning" if int(row["field_failure_signals"]) >= 3 else "ok",
+            }
+        )
+        for row in rows
+    ]
+    industrial_monitoring_path = output_dir / "industrial_monitoring_summary.json"
+    industrial_monitoring_path.write_text(
+        json.dumps(
+            {
+                "schema": "mqtt-opcua-telemetry",
+                "anomaly_threshold": 0.5,
+                "threshold_summary": threshold_operating_summary(industrial_scores, threshold=0.5),
+                "boundary": "simulated telemetry-style evidence only; not connected to factory systems",
+            },
+            indent=2,
+            sort_keys=True,
+        ),
+        encoding="utf-8",
+    )
+
     manifest_path = output_dir / "run_manifest.json"
     manifest = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
@@ -364,6 +458,7 @@ def write_artifacts(
             str(predictions_path.name),
             str(metrics_path.name),
             str(model_card_path.name),
+            str(industrial_monitoring_path.name),
             "regulated_feature_mart.sqlite",
         ],
         "review_boundary": "human reviewer must approve any escalation action",
@@ -374,6 +469,7 @@ def write_artifacts(
         "predictions": str(predictions_path),
         "metrics": str(metrics_path),
         "model_card": str(model_card_path),
+        "industrial_monitoring": str(industrial_monitoring_path),
         "manifest": str(manifest_path),
     }
 

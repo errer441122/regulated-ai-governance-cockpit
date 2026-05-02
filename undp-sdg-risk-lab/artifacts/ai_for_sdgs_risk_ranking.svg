@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="32" y="38" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#182026">AI for SDGs capacity-support risk ranking</text>
+<text x="32" y="66" font-family="Arial, sans-serif" font-size="14" fill="#53606b">Higher scores indicate contexts where human-reviewed capacity support may be needed before scaling AI-enabled services.</text>
+<text x="32" y="123" font-family="Arial, sans-serif" font-size="14" fill="#27313a">Haiti (HTI)</text>
+<rect x="190" y="100" width="620" height="26" rx="4" fill="#edf2f2"/>
+<rect x="190" y="100" width="620" height="26" rx="4" fill="#c94c3a"/>
+<text x="828" y="119" font-family="Arial, sans-serif" font-size="14" fill="#27313a">0.625</text>
+<text x="32" y="165" font-family="Arial, sans-serif" font-size="14" fill="#27313a">Nepal (NPL)</text>
+<rect x="190" y="142" width="620" height="26" rx="4" fill="#edf2f2"/>
+<rect x="190" y="142" width="450" height="26" rx="4" fill="#c94c3a"/>
+<text x="828" y="161" font-family="Arial, sans-serif" font-size="14" fill="#27313a">0.455</text>
+<text x="32" y="207" font-family="Arial, sans-serif" font-size="14" fill="#27313a">Bangladesh (BGD)</text>
+<rect x="190" y="184" width="620" height="26" rx="4" fill="#edf2f2"/>
+<rect x="190" y="184" width="439" height="26" rx="4" fill="#c94c3a"/>
+<text x="828" y="203" font-family="Arial, sans-serif" font-size="14" fill="#27313a">0.443</text>
+<text x="32" y="249" font-family="Arial, sans-serif" font-size="14" fill="#27313a">Rwanda (RWA)</text>
+<rect x="190" y="226" width="620" height="26" rx="4" fill="#edf2f2"/>
+<rect x="190" y="226" width="409" height="26" rx="4" fill="#287d6f"/>
+<text x="828" y="245" font-family="Arial, sans-serif" font-size="14" fill="#27313a">0.413</text>
+<text x="32" y="291" font-family="Arial, sans-serif" font-size="14" fill="#27313a">Kenya (KEN)</text>
+<rect x="190" y="268" width="620" height="26" rx="4" fill="#edf2f2"/>
+<rect x="190" y="268" width="381" height="26" rx="4" fill="#287d6f"/>
+<text x="828" y="287" font-family="Arial, sans-serif" font-size="14" fill="#27313a">0.385</text>
+<text x="32" y="333" font-family="Arial, sans-serif" font-size="14" fill="#27313a">Tunisia (TUN)</text>
+<rect x="190" y="310" width="620" height="26" rx="4" fill="#edf2f2"/>
+<rect x="190" y="310" width="334" height="26" rx="4" fill="#287d6f"/>
+<text x="828" y="329" font-family="Arial, sans-serif" font-size="14" fill="#27313a">0.337</text>
+<text x="32" y="375" font-family="Arial, sans-serif" font-size="14" fill="#27313a">Jordan (JOR)</text>
+<rect x="190" y="352" width="620" height="26" rx="4" fill="#edf2f2"/>
+<rect x="190" y="352" width="306" height="26" rx="4" fill="#287d6f"/>
+<text x="828" y="371" font-family="Arial, sans-serif" font-size="14" fill="#27313a">0.309</text>
+<text x="32" y="417" font-family="Arial, sans-serif" font-size="14" fill="#27313a">Peru (PER)</text>
+<rect x="190" y="394" width="620" height="26" rx="4" fill="#edf2f2"/>
+<rect x="190" y="394" width="272" height="26" rx="4" fill="#287d6f"/>
+<text x="828" y="413" font-family="Arial, sans-serif" font-size="14" fill="#27313a">0.274</text>
+<text x="32" y="459" font-family="Arial, sans-serif" font-size="14" fill="#27313a">Fiji (FJI)</text>
+<rect x="190" y="436" width="620" height="26" rx="4" fill="#edf2f2"/>
+<rect x="190" y="436" width="259" height="26" rx="4" fill="#287d6f"/>
+<text x="828" y="455" font-family="Arial, sans-serif" font-size="14" fill="#27313a">0.262</text>
+<text x="32" y="501" font-family="Arial, sans-serif" font-size="14" fill="#27313a">Ghana (GHA)</text>
+<rect x="190" y="478" width="620" height="26" rx="4" fill="#edf2f2"/>
+<rect x="190" y="478" width="242" height="26" rx="4" fill="#287d6f"/>
+<text x="828" y="497" font-family="Arial, sans-serif" font-size="14" fill="#27313a">0.245</text>
+</svg>

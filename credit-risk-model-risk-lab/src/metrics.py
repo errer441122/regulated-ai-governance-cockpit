@@ -108,3 +108,32 @@ def classification_metrics(y_true: np.ndarray, y_score: np.ndarray, threshold: f
             "true_positive": int(tp),
         },
     }
+
+
+def threshold_operating_points(
+    y_true: np.ndarray,
+    y_score: np.ndarray,
+    thresholds: tuple[float, ...] = (0.05, 0.1, 0.15, 0.2, 0.3, 0.5),
+) -> list[dict[str, float]]:
+    rows: list[dict[str, float]] = []
+    for threshold in thresholds:
+        y_pred = (y_score >= threshold).astype(int)
+        tn, fp, fn, tp = sk_metrics.confusion_matrix(y_true, y_pred).ravel()
+        reviewed = int(tp + fp)
+        precision = tp / reviewed if reviewed else 0.0
+        recall = tp / (tp + fn) if (tp + fn) else 0.0
+        false_positive_rate = fp / (fp + tn) if (fp + tn) else 0.0
+        rows.append(
+            {
+                "threshold": round(float(threshold), 4),
+                "review_rate": round(float(reviewed / len(y_true)), 6),
+                "precision": round(float(precision), 6),
+                "recall": round(float(recall), 6),
+                "false_positive_rate": round(float(false_positive_rate), 6),
+                "true_positive": int(tp),
+                "false_positive": int(fp),
+                "false_negative": int(fn),
+                "true_negative": int(tn),
+            }
+        )
+    return rows

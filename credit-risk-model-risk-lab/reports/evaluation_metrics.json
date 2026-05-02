@@ -7,6 +7,7 @@
     "true_positive": 411
   },
   "dataset": "OpenML 46929 GiveMeSomeCredit",
+  "dataset_rows": 150000,
   "event_rate": 0.066833,
   "expected_calibration_error": 0.003949,
   "f1": 0.306945,
@@ -30,5 +31,7 @@
   "roc_auc": 0.870866,
   "rows": 30000,
   "selected_model": "hist_gradient_boosting_probability",
-  "threshold": 0.5
+  "test_rows": 30000,
+  "threshold": 0.5,
+  "train_rows": 120000
 }

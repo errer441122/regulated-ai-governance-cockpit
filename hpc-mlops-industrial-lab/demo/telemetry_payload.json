@@ -1,0 +1,9 @@
+{
+  "topic": "factory/line-a/cnc-07/telemetry",
+  "asset_id": "cnc-07",
+  "timestamp_utc": "2026-05-02T10:15:00Z",
+  "temperature_c": 87.0,
+  "vibration_mm_s": 7.2,
+  "cycle_time_ms": 1420,
+  "quality_flag": "warning"
+}

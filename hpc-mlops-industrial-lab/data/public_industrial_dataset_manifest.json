@@ -1,0 +1,18 @@
+[
+  {
+    "id": "uci-ai4i-2020",
+    "title": "AI4I 2020 Predictive Maintenance Dataset",
+    "publisher": "UCI Machine Learning Repository",
+    "url": "https://archive.ics.uci.edu/dataset/601/predictive%2Bmaintenance%2Bdata",
+    "use": "public predictive-maintenance benchmark reference for machine-failure classification",
+    "repo_boundary": "not downloaded into this repository; current telemetry rows remain simulated"
+  },
+  {
+    "id": "nasa-cmapss",
+    "title": "C-MAPSS / turbofan degradation data for prognostic algorithm development",
+    "publisher": "NASA Open Data / Prognostics repository",
+    "url": "https://data.nasa.gov/dataset/simulating-degradation-data-for-prognostic-algorithm-development",
+    "use": "public prognostics and remaining-useful-life benchmark reference",
+    "repo_boundary": "not downloaded into this repository; listed as a credible next dataset path"
+  }
+]

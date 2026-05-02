@@ -8,17 +8,17 @@ This repository is the flagship portfolio project for regulated AI governance an
 2. Open `AI_INTERNSHIP_FIT.md` for the target-company fit summary and do-not-claim boundaries.
 3. Open `EVIDENCE_MAP.md` for role-to-artifact mapping.
 4. Check one executable technical proof:
-   - CRIF / PwC risk ML: `ml-baseline/README.md`
+   - Credit-risk ML depth: `docs/reviewer/CRIF_5_MIN_ROUTE.md`
    - UNDP public-data path: `undp-sdg-risk-lab/README.md`
-   - CINECA / IT4LIA AI workload: `hpc-ai-rag-lab/README.md`
+   - Governance/SDG RAG workload: `hpc-ai-rag-lab/README.md`
 5. If time allows, inspect `docs/reviewer/CLAIMS_AND_LIMITATIONS.md`.
 
 ## Best Reviewed For
 
 | Target | What to inspect first | Honest boundary |
 | --- | --- | --- |
-| CRIF ML Engineering | `ml-baseline/`, `orchestration/`, `production-sim-stack/src/ml_model_adapter.py` | Synthetic data, no real CRIF deployment |
-| PwC Data & AI / Risk | `ml-baseline/artifacts/model_card.md`, `sql/`, `EVIDENCE_MAP.md` | No client delivery or production risk model |
+| Credit-risk ML Engineering | `docs/reviewer/CRIF_5_MIN_ROUTE.md`, `credit-risk-model-risk-lab/` | Public data, no production credit deployment |
+| Data & AI / Risk consulting | `credit-risk-model-risk-lab/reports/validation_report.md`, `governance/`, `EVIDENCE_MAP.md` | No client delivery or production risk model |
 | UNDP Digital/Data Science | `undp-sdg-risk-lab/`, `production-sim-stack/PUBLIC_SECTOR_SDG_ROUTE.md` | Not a real UNDP project |
 | CINECA / IT4LIA | `hpc-ai-rag-lab/`, `ai-factory-workload-pack/`, `hpc/` | HPC-ready packaging only, no real cluster run |
 | BI-REX supplement | `production-sim-stack/`, `hpc-mlops-industrial-lab/` | Ducati repo should carry the stronger industrial telemetry story |

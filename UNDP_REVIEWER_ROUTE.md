@@ -22,6 +22,9 @@ This route is for reviewers looking for public-sector digital transformation, re
 
 4. Monitoring and knowledge products:
    - `undp-sdg-risk-lab/artifacts/nlp_topic_summary.csv`
+   - `hpc-ai-rag-lab/data/source_manifest.json`
+   - `hpc-ai-rag-lab/artifacts/retrieval_benchmark.json`
+   - `hpc-ai-rag-lab/src/api.py`
    - `production-sim-stack/M_AND_E_DASHBOARD_SPEC.md`
    - `production-sim-stack/reports/capacity_building_brief.example.md`
    - `production-sim-stack/grafana/capacity_support_dashboard.json`
@@ -29,7 +32,7 @@ This route is for reviewers looking for public-sector digital transformation, re
 5. Responsible AI boundary:
    - `production-sim-stack/RESPONSIBLE_AI_RISK_REGISTER.md`
    - `ml-baseline/model_card.md`
-   - `AI_INTERNSHIP_FIT.md`
+   - `docs/reviewer/CLAIMS_AND_LIMITATIONS.md`
 
 ## Positioning
 

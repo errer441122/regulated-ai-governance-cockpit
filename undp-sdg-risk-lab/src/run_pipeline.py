@@ -14,7 +14,12 @@ if str(SRC_DIR) not in sys.path:
 
 from build_sdg_features import build_features, load_indicator_rows
 from text_mining import load_text_rows, topic_keywords
-from write_policy_note import write_policy_note, write_responsible_checklist
+from write_policy_note import (
+    write_ai_for_sdgs_policy_brief,
+    write_policy_brief_charts,
+    write_policy_note,
+    write_responsible_checklist,
+)
 
 
 ARTIFACT_DIR = BASE_DIR / "artifacts"
@@ -31,12 +36,16 @@ def run(output_dir: Path = ARTIFACT_DIR) -> dict[str, object]:
     output_dir.mkdir(parents=True, exist_ok=True)
     scored = build_features(load_indicator_rows())
     topics = topic_keywords(load_text_rows())
+    chart_paths = write_policy_brief_charts(output_dir, scored)
+    policy_brief = write_ai_for_sdgs_policy_brief(output_dir / "ai_for_sdgs_policy_brief.md", scored, topics)
     summary = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "rows": len(scored),
         "capacity_support_flags": sum(int(row["capacity_support_flag"]) for row in scored),
         "average_sdg_risk_score": round(sum(float(row["sdg_risk_score"]) for row in scored) / len(scored), 4),
         "top_contexts": [row["iso3"] for row in sorted(scored, key=lambda item: float(item["sdg_risk_score"]), reverse=True)[:3]],
+        "policy_brief": policy_brief,
+        "policy_brief_charts": [str(path) for path in chart_paths],
         "boundary": "Briefing aid only; no automated aid, eligibility, procurement, targeting, or policy decisions.",
     }
     (output_dir / "sdg_risk_summary.json").write_text(json.dumps(summary, indent=2, sort_keys=True), encoding="utf-8")

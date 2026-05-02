@@ -1,0 +1,12 @@
+{
+  "artifacts": [
+    "escalation_predictions.csv",
+    "metrics.json",
+    "model_card.json",
+    "industrial_monitoring_summary.json",
+    "regulated_feature_mart.sqlite"
+  ],
+  "generated_at_utc": "2026-05-02T11:49:45+00:00",
+  "review_boundary": "human reviewer must approve any escalation action",
+  "rows": 24
+}

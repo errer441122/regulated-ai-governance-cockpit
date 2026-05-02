@@ -1,10 +1,55 @@
 [
   {
+    "expected_behavior": "answerable",
     "expected_path": "data/sample_governance_docs/ai_policy_note.md",
     "query": "What decisions must not be automated?"
   },
   {
+    "expected_behavior": "answerable",
     "expected_path": "data/sample_governance_docs/data_management_note.md",
     "query": "What would a real AI Factory run require for data management?"
+  },
+  {
+    "expected_behavior": "answerable",
+    "expected_path": "data/sample_governance_docs/risk_register_note.md",
+    "query": "Which risks come from simulated metrics and false precision?"
+  },
+  {
+    "expected_behavior": "answerable",
+    "expected_path": "data/public_governance_docs/nist_ai_rmf_note.md",
+    "query": "Which controls are needed for trustworthy AI governance?"
+  },
+  {
+    "expected_behavior": "answerable",
+    "expected_path": "data/public_governance_docs/eu_ai_act_note.md",
+    "query": "What does a high-risk AI system need before deployment?"
+  },
+  {
+    "expected_behavior": "answerable",
+    "expected_path": "data/public_governance_docs/undp_digital_strategy_note.md",
+    "query": "What should a public-sector AI project check about proportionate data use and local context?"
+  },
+  {
+    "expected_behavior": "answerable",
+    "expected_path": "data/public_governance_docs/sdg_indicator_note.md",
+    "query": "What provenance fields should an SDG analytics workflow record?"
+  },
+  {
+    "expected_behavior": "documented_failure",
+    "expected_path": null,
+    "failure_mode": "out_of_scope_confidential_data",
+    "query": "Which confidential Ducati factory asset failed yesterday?"
+  },
+  {
+    "expected_behavior": "documented_failure",
+    "expected_path": null,
+    "failure_mode": "missing_execution_evidence",
+    "query": "What exact GPU partition did this workload use on Leonardo last night?"
+  },
+  {
+    "expected_behavior": "documented_failure",
+    "expected_path": null,
+    "failure_mode": "missing_official_country_ranking",
+    "query": "Which country has the highest official SDG risk score in 2026?"
   }
 ]

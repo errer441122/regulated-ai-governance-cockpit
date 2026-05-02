@@ -6,8 +6,9 @@ from pathlib import Path
 import joblib
 
 from data import FEATURE_COLUMNS, split_dataset
-from metrics import calibration_bins, classification_metrics, population_stability_index
-from train import MODEL_PATH, train
+from metrics import calibration_bins, classification_metrics, population_stability_index, threshold_operating_points
+from train import MODEL_PATH, TRAINING_SUMMARY_PATH, train
+from validation import monitoring_plan, permutation_importance_rows, proxy_variable_notes, render_validation_report
 
 
 BASE_DIR = Path(__file__).resolve().parents[1]
@@ -18,6 +19,9 @@ DRIFT_PATH = REPORT_DIR / "drift_report.html"
 MODEL_CARD_PATH = REPORT_DIR / "model_card.md"
 FRAMEWORK_PATH = REPORT_DIR / "model_risk_framework.md"
 PSI_PATH = REPORT_DIR / "score_psi.json"
+THRESHOLD_PATH = REPORT_DIR / "threshold_review.csv"
+FEATURE_IMPORTANCE_PATH = REPORT_DIR / "feature_importance.csv"
+VALIDATION_PATH = REPORT_DIR / "validation_report.md"
 
 
 def markdown_table(rows: list[dict[str, object]], columns: list[str]) -> str:
@@ -27,7 +31,24 @@ def markdown_table(rows: list[dict[str, object]], columns: list[str]) -> str:
     return "\n".join([header, divider, *body])
 
 
-def write_reports(metrics: dict[str, object], bins: list[dict[str, float]], psi: dict[str, object]) -> None:
+def write_csv(rows: list[dict[str, object]], columns: list[str], path: Path) -> None:
+    path.write_text(
+        ",".join(columns)
+        + "\n"
+        + "\n".join(",".join(str(row[column]) for column in columns) for row in rows)
+        + "\n",
+        encoding="utf-8",
+    )
+
+
+def write_reports(
+    metrics: dict[str, object],
+    bins: list[dict[str, float]],
+    psi: dict[str, object],
+    thresholds: list[dict[str, object]],
+    feature_importance: list[dict[str, object]],
+    training_summary: dict[str, object],
+) -> None:
     MODEL_CARD_PATH.write_text(
         f"""# Model Card - GiveMeSomeCredit Credit-Risk Baseline
 
@@ -39,7 +60,9 @@ Public-data credit-risk baseline for model-risk documentation practice. This mod
 
 - OpenML dataset id: `46929`
 - Name: `GiveMeSomeCredit`
-- Rows used: `{metrics['rows']}`
+- Dataset rows: `{metrics['dataset_rows']}`
+- Train rows: `{metrics['train_rows']}`
+- Evaluation rows: `{metrics['test_rows']}`
 - Target event rate in test split: `{metrics['event_rate']}`
 - Original source: `https://www.kaggle.com/competitions/GiveMeSomeCredit`
 - OpenML metadata: `https://api.openml.org/api/v1/json/data/46929`
@@ -59,6 +82,17 @@ Public-data credit-risk baseline for model-risk documentation practice. This mod
 - Brier score: `{metrics['brier_score']}`
 - Expected calibration error: `{metrics['expected_calibration_error']}`
 - Score PSI train vs test: `{psi['psi']}`
+
+## Operating Points
+
+The default threshold is `0.5`. For reviewer discussion, `threshold_review.csv` records candidate review thresholds and the precision/recall tradeoff. This is not a credit policy or approval rule.
+
+## Explainability And Validation
+
+- Permutation importance: `reports/feature_importance.csv`
+- Validation report: `reports/validation_report.md`
+- Proxy/fairness note: included in the validation report for age, income, debt-ratio, dependents, and asset-proxy features.
+- Reject-inference boundary: documented explicitly because the public dataset does not contain rejected applicants or lender policy context.
 
 ## Intended Use
 
@@ -85,6 +119,23 @@ Any score is advisory evidence only. No individual decision should be made from 
         + "\n",
         encoding="utf-8",
     )
+
+    write_csv(
+        thresholds,
+        [
+            "threshold",
+            "review_rate",
+            "precision",
+            "recall",
+            "false_positive_rate",
+            "true_positive",
+            "false_positive",
+            "false_negative",
+            "true_negative",
+        ],
+        THRESHOLD_PATH,
+    )
+    write_csv(feature_importance, ["rank", "feature", "importance_mean", "importance_std"], FEATURE_IMPORTANCE_PATH)
 
     DRIFT_PATH.write_text(
         """<!doctype html>
@@ -122,6 +173,9 @@ The model is owned as a portfolio artifact. Its scope, data source, intended use
 | Domain metrics reported | `reports/evaluation_metrics.json` |
 | Calibration assessed | `reports/calibration_report.md` |
 | Drift/PSI assessed | `reports/drift_report.html`, `reports/score_psi.json` |
+| Threshold sensitivity reviewed | `reports/threshold_review.csv` |
+| Explainability reviewed | `reports/feature_importance.csv` |
+| Validation narrative | `reports/validation_report.md` |
 | Human-review boundary stated | `reports/model_card.md` |
 
 ## Model Change Policy
@@ -135,6 +189,19 @@ Any future model change should record dataset version, feature changes, training
 - no production monitoring or challenger governance
 - no regulatory approval or independent validation
 """,
+        encoding="utf-8",
+    )
+
+    VALIDATION_PATH.write_text(
+        render_validation_report(
+            metrics=metrics,
+            psi=psi,
+            thresholds=thresholds,
+            feature_importance=feature_importance,
+            proxy_notes=proxy_variable_notes(FEATURE_COLUMNS),
+            production_monitoring=monitoring_plan(),
+            training_summary=training_summary,
+        ),
         encoding="utf-8",
     )
 
@@ -154,14 +221,25 @@ def evaluate() -> dict[str, object]:
             "selected_model": bundle["selected_model"],
             "dataset": bundle["dataset"],
             "feature_columns": bundle["feature_columns"],
+            "dataset_rows": int(len(y_train) + len(y_test)),
+            "train_rows": int(len(y_train)),
+            "test_rows": int(len(y_test)),
         }
     )
     bins = calibration_bins(y_test, test_score)
     psi = population_stability_index(train_score, test_score)
+    thresholds = threshold_operating_points(y_test, test_score)
+    importance_rows = permutation_importance_rows(
+        model,
+        x_test[: min(len(x_test), 5000)],
+        y_test[: min(len(y_test), 5000)],
+        FEATURE_COLUMNS,
+    )
+    training_summary = json.loads(TRAINING_SUMMARY_PATH.read_text(encoding="utf-8")) if TRAINING_SUMMARY_PATH.exists() else {}
 
     METRICS_PATH.write_text(json.dumps(metrics, indent=2, sort_keys=True), encoding="utf-8")
     PSI_PATH.write_text(json.dumps(psi, indent=2, sort_keys=True), encoding="utf-8")
-    write_reports(metrics, bins, psi)
+    write_reports(metrics, bins, psi, thresholds, importance_rows, training_summary)
     return metrics
 
 

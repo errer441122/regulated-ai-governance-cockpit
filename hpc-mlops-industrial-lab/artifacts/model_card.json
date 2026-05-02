@@ -1,0 +1,33 @@
+{
+  "decision_boundary": "advisory triage only; no automated rejection or approval",
+  "feature_names": [
+    "data_quality_score",
+    "governance_maturity",
+    "automation_complexity",
+    "stage_age_days",
+    "gdpr_sensitive",
+    "field_failure_signals",
+    "text_risk_hits",
+    "distance_to_bologna_km"
+  ],
+  "limitations": [
+    "simulated data only",
+    "small sample size",
+    "not calibrated for production",
+    "no fairness certification",
+    "no live cloud or HPC execution"
+  ],
+  "metrics": {
+    "accuracy": 0.8333,
+    "f1": 0.8889,
+    "false_negative": 1,
+    "false_positive": 0,
+    "precision": 1.0,
+    "recall": 0.8,
+    "true_negative": 1,
+    "true_positive": 4
+  },
+  "model_name": "regulated_workflow_human_escalation_classifier",
+  "model_type": "logistic_regression_from_scratch",
+  "target": "needs_human_escalation"
+}

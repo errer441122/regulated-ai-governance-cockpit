@@ -20,6 +20,13 @@ def test_retrieval_returns_relevant_chunk():
     assert "ai_policy_note" in results[0]["chunk_id"]
 
 
+def test_document_loader_skips_heading_only_chunks():
+    chunks = load_documents()
+    assert chunks
+    assert all(not chunk.text.startswith("#") for chunk in chunks)
+    assert all(not chunk.text.lower().startswith("source url:") for chunk in chunks)
+
+
 def test_answer_stub_is_extractive():
     chunks = load_documents()
     results = retrieve("data management access controls", chunks, top_k=1)

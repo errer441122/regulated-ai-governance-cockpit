@@ -8,7 +8,8 @@ Fast path:
 2. `reports/model_card.md` for intended use, limits, dataset source, and human-review boundary.
 3. `reports/calibration_report.md` for probability calibration checks.
 4. `reports/drift_report.html` for population stability evidence.
-5. `src/train.py` and `src/evaluate.py` for reproducible execution.
+5. `reports/threshold_review.csv` for threshold sensitivity and review-rate tradeoffs.
+6. `src/train.py` and `src/evaluate.py` for reproducible execution.
 
 Positioning:
 

@@ -1,0 +1,25 @@
+workflow_id,sector,region,predicted_escalation_probability,predicted_human_escalation,needs_human_escalation
+WF-001,public_health,Emilia-Romagna,0.0001,0,0
+WF-002,credit_risk,Sicily,1.0,1,1
+WF-003,utilities,Lombardy,0.0048,0,0
+WF-004,manufacturing,Piedmont,0.9999,1,1
+WF-005,public_procurement,Lazio,0.3518,0,1
+WF-006,banking,Emilia-Romagna,0.0001,0,0
+WF-007,insurance,Campania,0.9989,1,1
+WF-008,energy,Veneto,0.0021,0,0
+WF-009,transport,Tuscany,0.9936,1,1
+WF-010,public_health,Apulia,0.9534,1,1
+WF-011,credit_risk,Lombardy,0.0008,0,0
+WF-012,manufacturing,Emilia-Romagna,0.0001,0,0
+WF-013,insurance,Liguria,0.9872,1,1
+WF-014,energy,Sardinia,0.9779,1,1
+WF-015,banking,Veneto,0.0003,0,0
+WF-016,public_procurement,Marche,0.0231,0,0
+WF-017,transport,Trentino-Alto Adige,0.9761,1,1
+WF-018,utilities,Friuli-Venezia Giulia,0.0019,0,0
+WF-019,public_health,Calabria,1.0,1,1
+WF-020,manufacturing,Lombardy,0.0271,0,0
+WF-021,credit_risk,Piedmont,0.9994,1,1
+WF-022,energy,Emilia-Romagna,0.0001,0,0
+WF-023,insurance,Tuscany,0.0192,0,0
+WF-024,transport,Sicily,1.0,1,1

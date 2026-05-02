@@ -8,7 +8,9 @@ Public-data credit-risk baseline for model-risk documentation practice. This mod
 
 - OpenML dataset id: `46929`
 - Name: `GiveMeSomeCredit`
-- Rows used: `30000`
+- Dataset rows: `150000`
+- Train rows: `120000`
+- Evaluation rows: `30000`
 - Target event rate in test split: `0.066833`
 - Original source: `https://www.kaggle.com/competitions/GiveMeSomeCredit`
 - OpenML metadata: `https://api.openml.org/api/v1/json/data/46929`
@@ -28,6 +30,17 @@ Public-data credit-risk baseline for model-risk documentation practice. This mod
 - Brier score: `0.04843`
 - Expected calibration error: `0.003949`
 - Score PSI train vs test: `0.000819`
+
+## Operating Points
+
+The default threshold is `0.5`. For reviewer discussion, `threshold_review.csv` records candidate review thresholds and the precision/recall tradeoff. This is not a credit policy or approval rule.
+
+## Explainability And Validation
+
+- Permutation importance: `reports/feature_importance.csv`
+- Validation report: `reports/validation_report.md`
+- Proxy/fairness note: included in the validation report for age, income, debt-ratio, dependents, and asset-proxy features.
+- Reject-inference boundary: documented explicitly because the public dataset does not contain rejected applicants or lender policy context.
 
 ## Intended Use
 

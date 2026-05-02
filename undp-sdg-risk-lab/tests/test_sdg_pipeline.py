@@ -31,7 +31,11 @@ def test_pipeline_writes_artifacts(tmp_path):
     for name in [
         "sdg_risk_summary.json",
         "sdg_policy_note.md",
+        "ai_for_sdgs_policy_brief.md",
+        "ai_for_sdgs_risk_ranking.svg",
+        "ai_for_sdgs_indicator_heatmap.svg",
         "responsible_data_checklist.md",
         "nlp_topic_summary.csv",
     ]:
         assert (tmp_path / name).exists()
+    assert summary["policy_brief"]["word_count"] >= 1200

@@ -43,8 +43,12 @@ Optional service run, if Docker and dependencies are available:
 
 ```bash
 cd production-sim-stack
+cp .env.example .env
+# Edit .env with local-only MinIO root credentials before starting services.
 docker compose up --build
 ```
+
+Compose publishes demo services on `127.0.0.1` only. Do not commit `.env` or reuse the example MinIO placeholders as real credentials.
 
 The repository includes a recorded local smoke test from 2026-05-01:
 

@@ -26,15 +26,20 @@ Generated evidence:
 
 - `reports/evaluation_metrics.json`
 - `reports/model_card.md`
+- `reports/validation_report.md`
 - `reports/calibration_report.md`
 - `reports/drift_report.html`
+- `reports/feature_importance.csv`
 - `reports/model_risk_framework.md`
 - `reports/score_psi.json`
+- `reports/threshold_review.csv`
 - `reports/training_summary.json`
 
 ## Metrics
 
-The evaluation reports ROC-AUC, PR-AUC, Gini, KS statistic, Brier score, expected calibration error, confusion matrix counts, and population stability index.
+The evaluation reports ROC-AUC, PR-AUC, Gini, KS statistic, Brier score, expected calibration error, confusion matrix counts, population stability index, threshold operating points, permutation importance, proxy/fairness notes, reject-inference boundaries, and a production monitoring checklist for reviewer discussion.
+
+Fast route: `docs/reviewer/CRIF_5_MIN_ROUTE.md`.
 
 ## Boundary
 

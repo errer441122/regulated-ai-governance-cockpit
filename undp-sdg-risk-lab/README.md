@@ -24,6 +24,9 @@ Generated artifacts:
 
 - `artifacts/sdg_risk_summary.json`
 - `artifacts/sdg_policy_note.md`
+- `artifacts/ai_for_sdgs_policy_brief.md`
+- `artifacts/ai_for_sdgs_risk_ranking.svg`
+- `artifacts/ai_for_sdgs_indicator_heatmap.svg`
 - `artifacts/responsible_data_checklist.md`
 - `artifacts/nlp_topic_summary.csv`
 

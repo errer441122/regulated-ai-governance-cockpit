@@ -14,7 +14,7 @@
     "run:ml-baseline": "python ml-baseline/train_model.py",
     "run:orchestrator": "python orchestration/local_orchestrator.py",
     "run:undp": "python undp-sdg-risk-lab/src/run_pipeline.py",
-    "run:rag": "python hpc-ai-rag-lab/src/benchmark.py --quick",
+    "run:rag": "python hpc-ai-rag-lab/src/benchmark.py",
     "validate": "npm test"
   },
   "engines": {

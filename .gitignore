@@ -10,6 +10,7 @@ hpc-mlops-industrial-lab/artifacts/*
 !hpc-mlops-industrial-lab/artifacts/.gitkeep
 production-sim-stack/artifacts/*
 !production-sim-stack/artifacts/.gitkeep
+production-sim-stack/.env
 credit-risk-model-risk-lab/data/*
 !credit-risk-model-risk-lab/data/.gitkeep
 credit-risk-model-risk-lab/artifacts/*

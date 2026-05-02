@@ -55,8 +55,12 @@ def build_report() -> Path:
     metrics = _load_json(ROOT / "ml-baseline" / "artifacts" / "metrics.json")
     evidence_summary = _load_json(RESULTS_DIR / "metrics_summary.json")
     public_metrics = _load_json(ROOT / "public-risk-ml-lab" / "artifacts" / "metrics.json")
+    credit_metrics = _load_json(ROOT / "credit-risk-model-risk-lab" / "reports" / "evaluation_metrics.json")
     sdg_metrics = _load_json(ROOT / "undp-public-data-gis-lab" / "artifacts" / "sdg_metrics.json")
+    sdg_risk_summary = _load_json(ROOT / "undp-sdg-risk-lab" / "artifacts" / "sdg_risk_summary.json")
     hpc_metrics = _load_json(ROOT / "hpc-pytorch-benchmark" / "artifacts" / "cpu_benchmark.json")
+    rag_metrics = _load_json(ROOT / "hpc-ai-rag-lab" / "artifacts" / "retrieval_benchmark.json")
+    industrial_monitoring = _load_json(ROOT / "hpc-mlops-industrial-lab" / "artifacts" / "industrial_monitoring_summary.json")
 
     _copy_if_exists(ROOT / "ml-baseline" / "artifacts" / "model_card.md", RESULTS_DIR / "model_card.md")
     _copy_if_exists(ROOT / "ml-baseline" / "data_card.md", RESULTS_DIR / "data_card.md")
@@ -115,6 +119,24 @@ Equivalent shell steps are listed in `evidence-lock/commands.sh`.
 | F1 | {public_metrics.get("f1", "missing")} |
 | Brier score | {public_metrics.get("brier_score", "missing")} |
 
+## Public Credit-Risk Model-Risk Lab
+
+| Evidence | Value |
+| --- | --- |
+| Dataset | {credit_metrics.get("dataset", "missing")} |
+| Dataset rows | {credit_metrics.get("dataset_rows", "missing")} |
+| Evaluation rows | {credit_metrics.get("test_rows", credit_metrics.get("rows", "missing"))} |
+| Selected model | {credit_metrics.get("selected_model", "missing")} |
+| ROC-AUC | {credit_metrics.get("roc_auc", "missing")} |
+| Gini | {credit_metrics.get("gini", "missing")} |
+| KS statistic | {credit_metrics.get("ks_statistic", "missing")} |
+| Brier score | {credit_metrics.get("brier_score", "missing")} |
+| Expected calibration error | {credit_metrics.get("expected_calibration_error", "missing")} |
+| Model card | `credit-risk-model-risk-lab/reports/model_card.md` |
+| Validation report | `credit-risk-model-risk-lab/reports/validation_report.md` |
+| Feature importance | `credit-risk-model-risk-lab/reports/feature_importance.csv` |
+| Threshold review | `credit-risk-model-risk-lab/reports/threshold_review.csv` |
+
 ## API, Docker, and Operations Evidence
 
 | Check | Status |
@@ -136,6 +158,17 @@ Equivalent shell steps are listed in `evidence-lock/commands.sh`.
 | Map output | `undp-public-data-gis-lab/artifacts/map_output.png` |
 | Policy note | `undp-public-data-gis-lab/artifacts/policy_note.md` |
 
+## UNDP AI for SDGs Policy Evidence
+
+| Evidence | Value |
+| --- | --- |
+| Rows | {sdg_risk_summary.get("rows", "missing")} |
+| Capacity-support flags | {sdg_risk_summary.get("capacity_support_flags", "missing")} |
+| Average SDG risk score | {sdg_risk_summary.get("average_sdg_risk_score", "missing")} |
+| Top contexts | {", ".join(sdg_risk_summary.get("top_contexts", [])) if isinstance(sdg_risk_summary.get("top_contexts"), list) else "missing"} |
+| Policy brief | `undp-sdg-risk-lab/artifacts/ai_for_sdgs_policy_brief.md` |
+| Charts | `undp-sdg-risk-lab/artifacts/ai_for_sdgs_risk_ranking.svg`, `undp-sdg-risk-lab/artifacts/ai_for_sdgs_indicator_heatmap.svg` |
+
 ## CINECA / IT4LIA AI/HPC Evidence
 
 | Evidence | Value |
@@ -144,6 +177,35 @@ Equivalent shell steps are listed in `evidence-lock/commands.sh`.
 | Runtime seconds | {hpc_metrics.get("runtime_seconds", "missing")} |
 | Inference latency ms | {hpc_metrics.get("inference_latency_ms", "missing")} |
 | Execution note | {hpc_metrics.get("execution_note", "missing")} |
+
+## Governance / SDG RAG Evidence
+
+| Evidence | Value |
+| --- | --- |
+| Documents | {rag_metrics.get("documents", "missing")} |
+| Chunks | {rag_metrics.get("chunks", "missing")} |
+| Eval questions | {rag_metrics.get("queries", "missing")} |
+| Answerable questions | {rag_metrics.get("answerable_questions", "missing")} |
+| Adversarial questions | {rag_metrics.get("adversarial_questions", "missing")} |
+| Top-k accuracy | {rag_metrics.get("top_k_accuracy", "missing")} |
+| Grounding coverage | {rag_metrics.get("grounding_coverage", "missing")} |
+| Documented failures | {rag_metrics.get("documented_failures", "missing")} |
+| Mean hallucination risk score | {rag_metrics.get("mean_hallucination_risk_score", "missing")} |
+| Source manifest | `hpc-ai-rag-lab/data/source_manifest.json` |
+| FastAPI-compatible endpoint | `hpc-ai-rag-lab/src/api.py` |
+
+## Industrial AI Supplement Evidence
+
+| Evidence | Value |
+| --- | --- |
+| Telemetry schema | {industrial_monitoring.get("schema", "missing")} |
+| Anomaly threshold | {industrial_monitoring.get("anomaly_threshold", "missing")} |
+| Alert rate | {industrial_monitoring.get("threshold_summary", {}).get("alert_rate", "missing") if isinstance(industrial_monitoring.get("threshold_summary"), dict) else "missing"} |
+| Alerts | {industrial_monitoring.get("threshold_summary", {}).get("alerts", "missing") if isinstance(industrial_monitoring.get("threshold_summary"), dict) else "missing"} |
+| Public dataset manifest | `hpc-mlops-industrial-lab/data/public_industrial_dataset_manifest.json` |
+| Demo payload | `hpc-mlops-industrial-lab/demo/telemetry_payload.json` |
+| Curl demo script | `docs/reviewer/BI_REX_DEMO_SCRIPT.md` |
+| Reviewer route | `docs/reviewer/BI_REX_INDUSTRIAL_AI_ROUTE.md` |
 
 ## Scope Boundaries
 

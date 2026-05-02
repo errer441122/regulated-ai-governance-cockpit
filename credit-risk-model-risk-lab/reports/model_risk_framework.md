@@ -13,6 +13,9 @@ The model is owned as a portfolio artifact. Its scope, data source, intended use
 | Domain metrics reported | `reports/evaluation_metrics.json` |
 | Calibration assessed | `reports/calibration_report.md` |
 | Drift/PSI assessed | `reports/drift_report.html`, `reports/score_psi.json` |
+| Threshold sensitivity reviewed | `reports/threshold_review.csv` |
+| Explainability reviewed | `reports/feature_importance.csv` |
+| Validation narrative | `reports/validation_report.md` |
 | Human-review boundary stated | `reports/model_card.md` |
 
 ## Model Change Policy

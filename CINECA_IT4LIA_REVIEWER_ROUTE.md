@@ -3,7 +3,7 @@
 This route is for reviewers looking for AI Factory, HPC workload readiness, metadata, secure data management, and reproducible AI packaging evidence. It does not claim real CINECA, IT4LIA, Leonardo, LISA, GAIA, MEGARIDE, or GPU execution.
 
 1. Start here:
-   - `AI_INTERNSHIP_FIT.md`
+   - `docs/reviewer/TECHNICAL_20_MIN_ROUTE.md`
 
 2. Workload packaging:
    - `ai-factory-workload-pack/README.md`
@@ -11,6 +11,7 @@ This route is for reviewers looking for AI Factory, HPC workload readiness, meta
    - `ai-factory-workload-pack/benchmark_report.md`
    - `hpc-ai-rag-lab/README.md`
    - `hpc-ai-rag-lab/apptainer/Apptainer.def`
+   - `hpc-ai-rag-lab/data/source_manifest.json`
 
 3. Slurm/HPC evidence:
    - `hpc/run_pipeline.sbatch`
@@ -19,6 +20,7 @@ This route is for reviewers looking for AI Factory, HPC workload readiness, meta
 
 4. Executable workload:
    - `hpc-ai-rag-lab/src/benchmark.py`
+   - `hpc-ai-rag-lab/src/api.py`
    - `hpc-ai-rag-lab/artifacts/retrieval_benchmark.json`
    - `hpc-mlops-industrial-lab/src/run_pipeline.py`
    - `ml-baseline/train_model.py`

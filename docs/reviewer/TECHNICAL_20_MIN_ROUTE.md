@@ -10,21 +10,22 @@ npm test
 
 This validates the static cockpit data and the existing Python unittest suites for `hpc-mlops-industrial-lab/` and `production-sim-stack/`.
 
-## 2. Run The Risk ML Baseline
+## 2. Run The Credit-Risk Lab
 
 ```bash
-python -m pip install -r ml-baseline/requirements.txt
-python ml-baseline/train_model.py
-python -m pytest -q ml-baseline/tests
+python -m pip install -r credit-risk-model-risk-lab/requirements.txt
+python credit-risk-model-risk-lab/src/evaluate.py
+python -m pytest -q credit-risk-model-risk-lab/tests
 ```
 
 Inspect:
 
-- `ml-baseline/src/regulated_risk_ml/`
-- `ml-baseline/artifacts/metrics.json`
-- `ml-baseline/artifacts/calibration.json`
-- `ml-baseline/artifacts/drift_report.json`
-- `ml-baseline/artifacts/model_card.md`
+- `credit-risk-model-risk-lab/src/`
+- `credit-risk-model-risk-lab/reports/evaluation_metrics.json`
+- `credit-risk-model-risk-lab/reports/validation_report.md`
+- `credit-risk-model-risk-lab/reports/model_card.md`
+- `credit-risk-model-risk-lab/reports/feature_importance.csv`
+- `docs/reviewer/CRIF_5_MIN_ROUTE.md`
 
 ## 3. Verify The Orchestration Path
 
@@ -47,19 +48,23 @@ Inspect:
 - `undp-sdg-risk-lab/artifacts/responsible_data_checklist.md`
 - `undp-sdg-risk-lab/artifacts/nlp_topic_summary.csv`
 
-## 5. Review AI Factory / HPC-RAG Evidence
+## 5. Review AI Factory / Governance-RAG Evidence
 
 ```bash
-python hpc-ai-rag-lab/src/benchmark.py --quick
+python hpc-ai-rag-lab/src/benchmark.py
 python -m pytest -q hpc-ai-rag-lab/tests
 ```
 
 Inspect:
 
 - `hpc-ai-rag-lab/artifacts/retrieval_benchmark.json`
+- `hpc-ai-rag-lab/data/source_manifest.json`
+- `hpc-ai-rag-lab/src/api.py`
 - `hpc-ai-rag-lab/slurm/run_rag_benchmark.sbatch`
 - `hpc-ai-rag-lab/apptainer/Apptainer.def`
 - `ai-factory-workload-pack/`
+
+The RAG benchmark includes adversarial and out-of-scope questions. Review `documented_failures`, `grounding_coverage`, and `mean_hallucination_risk_score`; perfect accuracy is not the goal.
 
 ## 6. Review Production Simulation Boundaries
 
