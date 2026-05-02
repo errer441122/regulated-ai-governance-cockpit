@@ -1,0 +1,12 @@
+artifacts/*
+!artifacts/.gitkeep
+data/mvtec*/
+data/**/*.bmp
+data/**/*.jpeg
+data/**/*.jpg
+data/**/*.png
+data/**/*.tif
+data/**/*.tiff
+*.ckpt
+*.pth
+*.pt
