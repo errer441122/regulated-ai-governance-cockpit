@@ -8,6 +8,12 @@ Applied portfolio project for regulated AI governance, credit-risk ML evidence, 
 
 The repository is intentionally honest about scope: it combines executable labs, public data, local simulations, and deployment evidence, but it does not claim production use, employer/client data, real Slurm execution, regulatory certification, or real credit/public-benefit decisions.
 
+## IT4LIA / AI Factory Spotlight
+
+[Italian/EU NLP Training-to-Benchmark HPC Workload](it4lia-ai-factory-evidence/README.md) is a self-contained evidence artifact showing the full applied ML path: fine-tuning Italian BERT on SENTIPOLC public Italian tweet data, optimizing inference with `torch.compile`, ONNX export and dynamic quantization, packaging the workload for GPU execution with Apptainer, benchmarking latency/throughput/memory/accuracy, and serving optimized inference through FastAPI.
+
+Scope boundary: this is AI Factory readiness evidence on public Italian/EU-style NLP data. It does not alter the CRIF credit-risk lab, PwC governance/RAG work, UNDP public-sector pack, BI-REX industrial IoT evidence, or CINECA Leonardo execution claims.
+
 ## Five Files To Review First
 
 1. `docs/reviewer/CRIF_5_MIN_ROUTE.md`
@@ -39,6 +45,7 @@ make evidence
 | RAG / AI development | Public-source governance/SDG notes, ingestion, chunking, retrieval, answer generation, 10-question eval set, grounding checks, FastAPI-compatible endpoint |
 | Production simulation | FastAPI-style scoring, Docker/Render packaging, API smoke evidence, model-source fallback boundaries |
 | HPC / AI Factory readiness | Slurm and Apptainer packaging, CPU benchmarks, workload and data-management plans |
+| Italian NLP AI Factory workload | `it4lia-ai-factory-evidence/`: training -> optimization -> Apptainer GPU packaging -> benchmark on public Italian SENTIPOLC data |
 | Public-sector analytics | SDG risk lab, responsible data checklist, policy brief artifacts, public-data boundaries |
 
 ## Reviewer Routes
@@ -61,7 +68,7 @@ make evidence
 | Credit-risk ML engineering | `credit-risk-model-risk-lab/`, `production-sim-stack/src/api.py`, CI |
 | Data and AI risk consulting | `governance/`, `credit-risk-model-risk-lab/reports/validation_report.md`, `EVIDENCE_MAP.md` |
 | Public-sector data science | `undp-sdg-risk-lab/`, `hpc-ai-rag-lab/`, responsible data artifacts |
-| AI Factory / HPC support | `hpc-ai-rag-lab/`, `ai-factory-workload-pack/`, `hpc-pytorch-benchmark/` |
+| AI Factory / HPC support | `it4lia-ai-factory-evidence/`, `hpc-ai-rag-lab/`, `ai-factory-workload-pack/`, `hpc-pytorch-benchmark/` |
 | Industrial AI supplement | `hpc-mlops-industrial-lab/`, `production-sim-stack/` |
 
 ## Limits

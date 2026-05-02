@@ -1,0 +1,12 @@
+model_dir: artifacts/model
+onnx_path: artifacts/model/model.onnx
+quantized_onnx_path: artifacts/model/model-quantized.onnx
+max_length: 128
+opset: 17
+compile_mode: reduce-overhead
+metadata_path: reports/optimization_metadata.json
+batch_size: 16
+warmup_batches: 3
+measured_batches: 20
+report_json: reports/profiling_report.json
+report_md: reports/optimization_report.md

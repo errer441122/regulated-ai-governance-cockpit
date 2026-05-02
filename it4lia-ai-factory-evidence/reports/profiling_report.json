@@ -1,0 +1,20 @@
+{
+  "status": "not_executed_in_this_checkout",
+  "generated_by": "src/benchmark.py",
+  "dataset": "evalitahf/sentiment_analysis",
+  "model": "dbmdz/bert-base-italian-xxl-cased",
+  "engines": [
+    "pytorch_eager",
+    "torch_compile",
+    "onnxruntime",
+    "onnxruntime_quantized"
+  ],
+  "metrics_schema": {
+    "accuracy": "float",
+    "latency_p50_ms": "float",
+    "latency_p95_ms": "float",
+    "throughput_samples_s": "float",
+    "memory_delta_mb": "float"
+  },
+  "results": []
+}

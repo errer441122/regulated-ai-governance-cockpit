@@ -1,0 +1,50 @@
+Bootstrap: docker
+From: pytorch/pytorch:2.4.1-cuda12.1-cudnn9-runtime
+
+%labels
+    Author Riccardo Capanna
+    Workload IT4LIA Italian BERT sentiment optimization
+    Scope AI Factory readiness evidence, not Leonardo execution evidence
+
+%files
+    requirements.txt /opt/it4lia/requirements.txt
+    src /opt/it4lia/src
+    configs /opt/it4lia/configs
+
+%post
+    set -eux
+    apt-get update
+    apt-get install -y --no-install-recommends git curl ca-certificates
+    rm -rf /var/lib/apt/lists/*
+    python -m pip install --upgrade pip
+    python -m pip install --no-cache-dir -r /opt/it4lia/requirements.txt
+    python -m pip install --no-cache-dir onnxruntime-gpu
+
+%environment
+    export PYTHONUNBUFFERED=1
+    export TOKENIZERS_PARALLELISM=false
+    export IT4LIA_MODEL_DIR=/workspace/artifacts/model
+    export IT4LIA_ONNX_MODEL=/workspace/artifacts/model/model-quantized.onnx
+    export IT4LIA_BACKEND=onnx
+
+%runscript
+    cd /workspace
+    exec uvicorn src.inference_api:app --host 0.0.0.0 --port 8000
+
+%test
+    python - <<'PY'
+import torch
+print("torch", torch.__version__)
+print("cuda_available", torch.cuda.is_available())
+PY
+
+%help
+    Build from the artifact root:
+      apptainer build --fakeroot it4lia-gpu-workload.sif apptainer/it4lia-gpu-workload.def
+
+    Run training with a bind-mounted workspace:
+      apptainer exec --nv --bind "$PWD":/workspace it4lia-gpu-workload.sif \
+        torchrun --standalone --nproc_per_node=2 src/train.py --config configs/train_ddp.yaml
+
+    Serve optimized inference:
+      apptainer run --nv --bind "$PWD":/workspace it4lia-gpu-workload.sif

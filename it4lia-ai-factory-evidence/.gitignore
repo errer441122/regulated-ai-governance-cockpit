@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+artifacts/
+outputs/
+*.onnx
+*.sif
+reports/train_metrics.json
+reports/optimization_metadata.json
